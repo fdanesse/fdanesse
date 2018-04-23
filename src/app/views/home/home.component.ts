@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   // import { ViewChild, ElementRef } from '@angular/core';
   // @ViewChild('divider') divider: ElementRef; // this.divider.nativeElement
   // https://stackoverflow.com/questions/42591822/angular-2-access-an-element-from-the-component-getdocumentbyid-doesnt-work
+  // https://angularfirebase.com/lessons/animation-examples-in-angular-4-3/
 
   constructor() { }
 
