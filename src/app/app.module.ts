@@ -7,16 +7,21 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurriculumComponent } from './views/curriculum/curriculum.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CurriculumComponent
   ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule // https://coursetro.com/posts/code/63/Angular-4-Animation-Tutorial
   ],
   providers: [],
   bootstrap: [AppComponent]

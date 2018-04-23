@@ -19,9 +19,13 @@
       "prefix": "app",
       "styles": [
         "../node_modules/font-awesome/css/font-awesome.css",
+        "./assets/libs/animatecss/animate.css",
         "styles.css"
       ],
-      "scripts": ["../node_modules/popper.js/dist/umd/popper.js"],
+      "scripts": [
+        "../node_modules/popper.js/dist/umd/popper.js",
+        "../node_modules/jquery/dist/jquery.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
