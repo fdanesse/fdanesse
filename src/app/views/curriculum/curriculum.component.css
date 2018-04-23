@@ -8,10 +8,15 @@
 }
 */
 
-* {
+h1, h2, h3, h4, h5, h6, p, ul, li {
   font-family: 'Josefin Slab', serif;
   font-size: 18px;
   font-weight: lighter;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
 }
 
 .background {
@@ -42,8 +47,17 @@
 	z-index: 1;
 }
 
-a:hover {
-	cursor: pointer;
+.fa {
+  color: white;
+}
+
+.fa-home {
+  color: black;
+}
+
+.fa-home:hover,.fa-linkedin:hover, .fa-youtube-square:hover {
+  cursor: pointer;
+  color: red;
 }
 
 /*
