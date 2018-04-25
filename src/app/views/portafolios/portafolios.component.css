@@ -1,0 +1,149 @@
+.container-fluid {
+	font-family: 'Josefin Slab', serif;
+  font-size: 16pt;
+  /*
+	background-image: url(img/105.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  */
+}
+
+.row {
+  color: white;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.navbar-brand {
+  margin: auto;
+  margin-left: 5px;
+  margin-right: 0px;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-style: bold;
+	text-align: center;
+  vertical-align: center;
+  margin: auto;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+h6 {
+  text-align: right;
+  vertical-align: bottom;
+  margin: auto;
+  margin-right: 5px;
+  margin-bottom: 0;
+}
+
+.fa {
+  color: white;
+}
+
+.fa-home:hover,.fa-linkedin:hover, .fa-youtube-square:hover {
+  cursor: pointer;
+  color: cyan;
+  text-shadow: 0.025em 0.025em 0.025em black !important;
+}
+
+main {
+	width: auto;
+	height: auto;
+	padding: 10px;
+	margin: 0px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+  flex-direction: row;
+
+	-webkit-justify-content: center;
+  justify-content: center;
+
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+section {
+	clear:both;
+	position: relative;
+	width: 300px;
+	height: 300px;
+	margin: 5px;
+	padding: 5px;
+	background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  border: 0.01em rgb(127, 127, 127) solid;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+section img {
+	position: relative;
+  display: block;
+  height: 250px;
+  width: auto;
+  transition: .5s ease; /*transition: opacity 0.5s;*/
+  overflow: hidden;
+}
+
+section h2 {
+  position: relative;
+  color: white;
+	background-color: black;
+	text-align: center;
+	margin: 0px;
+	padding: 5px;
+  padding-top: auto;
+  margin-bottom: 3px;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	right: 0;
+  background-color: rgba(255, 255, 255, 0.8); /*rgba(0, 255, 0, 0.5)*/
+  color: black;
+	overflow: hidden;
+	width: 100%;
+	height:0;
+	transition: .5s ease;
+}
+
+section:hover .overlay {
+	bottom: 0;
+	height: 100%;
+}
+
+section:hover img {
+	opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.overlay:hover, .overlay label:hover {
+	cursor: pointer;
+}
+
+section label {
+	width: 100%;
+	text-align:center;
+	padding: 10px;
+	font-size: 1em;
+	/*font-weight: bold;*/
+	position: absolute;
+	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+p {
+	margin: 20px;
+}

@@ -9,13 +9,15 @@ import { HomeComponent } from './views/home/home.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurriculumComponent } from './views/curriculum/curriculum.component';
+import { PortafoliosComponent } from './views/portafolios/portafolios.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CurriculumComponent
+    CurriculumComponent,
+    PortafoliosComponent
   ],
   imports: [
     BrowserModule,
