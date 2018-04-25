@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { CurriculumComponent } from './views/curriculum/curriculum.component';
 import { PortafoliosComponent } from './views/portafolios/portafolios.component';
+import { JamediaComponent } from './views/portafolios/jamedia/jamedia.component';
+import { NotfoundComponent } from './views/notfound/notfound.component';
 
 
 const routes: Routes = [
@@ -10,8 +12,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // component: HomeComponent
   { path: 'home', component: HomeComponent },
   { path: 'curriculum', component: CurriculumComponent },
-  { path: 'portafolios', component: PortafoliosComponent }
-  // { path: '**', component: NotfoundComponent }
+  { path: 'portafolios', component: PortafoliosComponent },
+  { path: 'jamedia', component: JamediaComponent },
+
+  { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

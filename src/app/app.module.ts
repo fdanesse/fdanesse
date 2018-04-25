@@ -10,6 +10,8 @@ import { HomeComponent } from './views/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurriculumComponent } from './views/curriculum/curriculum.component';
 import { PortafoliosComponent } from './views/portafolios/portafolios.component';
+import { JamediaComponent } from './views/portafolios/jamedia/jamedia.component';
+import { NotfoundComponent } from './views/notfound/notfound.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { PortafoliosComponent } from './views/portafolios/portafolios.component'
     AppComponent,
     HomeComponent,
     CurriculumComponent,
-    PortafoliosComponent
+    PortafoliosComponent,
+    JamediaComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
