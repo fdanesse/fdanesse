@@ -19,6 +19,8 @@
 }
 
 .container-fluid {
+  margin: 0;
+  padding: 5px;
 	font-family: 'Josefin Slab', serif;
   font-size: 14pt;
   background-color: black;

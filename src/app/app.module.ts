@@ -13,6 +13,7 @@ import { PortafoliosComponent } from './views/portafolios/portafolios.component'
 import { JamediaComponent } from './views/portafolios/jamedia/jamedia.component';
 import { NotfoundComponent } from './views/notfound/notfound.component';
 import { JamediaPythonComponent } from './views/portafolios/jamedia/jamedia-python/jamedia-python.component';
+import { JamediaValaComponent } from './views/portafolios/jamedia/jamedia-vala/jamedia-vala.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { JamediaPythonComponent } from './views/portafolios/jamedia/jamedia-pyth
     PortafoliosComponent,
     JamediaComponent,
     NotfoundComponent,
-    JamediaPythonComponent
+    JamediaPythonComponent,
+    JamediaValaComponent
   ],
   imports: [
     BrowserModule,
