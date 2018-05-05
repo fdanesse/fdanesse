@@ -12,6 +12,7 @@ import { CurriculumComponent } from './views/curriculum/curriculum.component';
 import { PortafoliosComponent } from './views/portafolios/portafolios.component';
 import { JamediaComponent } from './views/portafolios/jamedia/jamedia.component';
 import { NotfoundComponent } from './views/notfound/notfound.component';
+import { JamediaPythonComponent } from './views/portafolios/jamedia/jamedia-python/jamedia-python.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NotfoundComponent } from './views/notfound/notfound.component';
     CurriculumComponent,
     PortafoliosComponent,
     JamediaComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    JamediaPythonComponent
   ],
   imports: [
     BrowserModule,

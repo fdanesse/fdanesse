@@ -1,0 +1,91 @@
+<div class='container-fluid'>
+  <div id='home_button'><a routerLink='/jamedia'><i class="fa fa-home fa-2x"></i></a></div>
+  <header class='animated bounceInDown'>
+    <figure [style.background-image]="'url(' + '/assets/imgs/fondos/reciclado_arrugado_azul.png' + ')'">
+      <img src="/assets/imgs/jamedia/jamedia.png" alt="Logo de JAMedia">
+    </figure>
+
+    <section id="s-titulo">
+      <h1><strong>JAMedia en python</strong></h1>
+      <hr>
+      <ul>
+        <li>Reproduce Archivos de Audio y Video</li>
+        <li>Reproduce Streamings</li>
+        <li>Busca Videos en youtube</li>
+        <li>Descarga Videos desde youtube</li>
+        <li>Graba desde Streamings</li>
+      </ul>
+      <hr>
+
+      <h5>Repositorio:
+        <a href="https://github.com/fdanesse/jamedia-python" target="_blank"> jamedia-python</a>
+      </h5>
+      <h5>Instalador para Sugar:
+        <a href="https://activities.sugarlabs.org/es-ES/sugar/addon/4548" target="_blank">jamedia-sugar</a>
+      </h5>
+    </section>
+
+  </header>
+
+  <main class='animated bounceInUp'>
+		<section>
+			<h4><strong>Bibliotecas Necesarias:</strong></h4>
+			<hr>
+			<ul>
+				<li>python 2.7</li>
+				<li>gtk 2.0</li>
+				<li>gstreamer 0.10</li>
+				<hr>
+				<li>python-gst0.10</li>
+				<li>gstreamer0.10-ffmpeg</li>
+				<li>gstreamer0.10-plugins-base</li>
+				<li>gstreamer0.10-plugins-good</li>
+				<li>gstreamer0.10-plugins-ugly</li>
+				<li>gstreamer0.10-plugins-bad</li>
+				<li>gstreamer0.10-tools</li>
+				<li>python-gst0.10-rtsp</li>
+				<hr>
+			</ul>
+		</section>
+
+		<section>
+			<h4><strong>Guia de Instalación:</strong></h4>
+			<hr>
+			<h6><strong>Descarga:</strong></h6>
+			<ul>
+				<li>Descarga el zip desde el repositorio</li>
+				<li>Descomprime el zip en tu computadora</li>
+				<li>Entra en el directorio descomprimido</li>
+			</ul>
+			<hr>
+			<h6><strong>Instalación standar:</strong></h6>
+				<ul>
+					<li>Ejecuta: "sudo python setup.py install"</li>
+				</ul>
+			<hr>
+			<h6><strong>Instalación sin root:</strong></h6>
+				<ul>
+					<li>Ejecuta: "python install.py"</li>
+				</ul>
+		<hr>
+		</section>
+
+		<section>
+		<h4><strong>Para Desinstalar:</strong></h4>
+			<hr>
+			<h6><strong>Instalación standar:</strong></h6>
+				<ul>
+					<li>Ejecuta: "sudo jamedia_uninstall"</li>
+				</ul>
+			<hr>
+			<h6><strong>Instalación sin root:</strong></h6>
+			<ul>
+				<li>Borra: "/home/tu_usuario/.local/share/JAMedia"</li>
+        <li>Borra: "/home/tu_usuario/.local/share/applications/JAMedia.desktop"</li>
+        <!--FIXME: li no son responsivas-->
+			</ul>
+		<hr>
+		</section>
+  </main>
+
+</div>
