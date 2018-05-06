@@ -25,15 +25,15 @@ export class JamediaRadioComponent implements OnInit {
     window.addEventListener('resize', this.resizeAll);
   }
 
-  private resizeAll() {
+  resizeAll() {
     const w = window.innerWidth;
     const h = window.innerHeight;
     const jamedia = document.getElementById('jamedia');
-    jamedia.style.maxWidth = parseInt(w) - 20 + 'px';
-    jamedia.style.maxHeight = parseInt(h) - 20 + 'px';
+    jamedia.style.maxWidth = w - 20 + 'px';
+    jamedia.style.maxHeight = h - 20 + 'px';
   }
 
-  private select_item(item) {
+  select_item(item) {
     if (this.trackselected != null) {
       this.trackselected.classList.remove('playing');
     }
@@ -44,7 +44,7 @@ export class JamediaRadioComponent implements OnInit {
       this.trackselected.getAttribute('data'));
   }
 
-  private load_and_play(name, url) {
+  load_and_play(name, url) {
     this.audioplayer.src = url + '?nocache=' + new Date().getTime();
     this.audioplayer.volume = this.volumen;
     this.audioplayer.play();
@@ -55,12 +55,12 @@ export class JamediaRadioComponent implements OnInit {
     legend.innerHTML = name;
   }
 
-  private setvolumen(event) {
+  setvolumen(event) {
     this.volumen = event.target.value / 100;
     this.audioplayer.volume = this.volumen;
   }
 
-  private pause_play() {
+  pause_play() {
     if (this.audioplayer.paused || this.audioplayer.ready) {
       this.audioplayer.play();
     } else {
@@ -68,13 +68,13 @@ export class JamediaRadioComponent implements OnInit {
     }
   }
 
-  private inplay(event) {
+  inplay(event) {
     const span = this.buttonplay.children[0];
     span.classList.remove('fa-play');
     span.classList.add('fa-pause');
   }
 
-  private inpause(event) {
+  inpause(event) {
     const span = this.buttonplay.children[0];
     span.classList.remove('fa-pause');
     span.classList.add('fa-play');
