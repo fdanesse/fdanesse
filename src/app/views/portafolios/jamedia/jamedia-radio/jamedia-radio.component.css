@@ -1,0 +1,213 @@
+* {
+  color: rgba(255, 87, 34, 1.0) !important;
+}
+
+.container-fluid {
+  background-color: white;
+  z-index: 0;
+  margin: 0;
+  padding: 10px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-family: 'Josefin Slab', serif !important;
+  font-weight: lighter !important;
+}
+
+#logo {
+  z-index: 1;
+  width: 70%;
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0.5;
+}
+
+#jamedia {
+  z-index: 2;
+  width: 350px;
+  height: 600px;
+  padding: 0.3em;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  display: -webkit-flex;
+  display: flex; -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+header {
+  border: 0.1em solid gray;
+  padding: 0.3em;
+  text-align: center;
+  background-color: black;
+}
+
+header h1 {
+  margin: 0.2em;
+}
+
+#player_widget {
+  margin-bottom: 0.3em;
+  border: 0.01em solid gray;
+  padding: 0.3em;
+}
+
+#player_legend {
+  margin: auto;
+  border: 0;
+  padding: 0.3em;
+  text-align: left;
+  color: white !important;
+  font-size: 0.8em !important;
+}
+
+#controls {
+  margin: 0.3em;
+  padding: 0.3em;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  border: 0.05em solid gray;
+  border-radius: 0.3em;
+}
+
+#controls button {
+  margin-right: 0.4em !important;
+  cursor: pointer;
+}
+
+#controls input[type = range] {
+  cursor: pointer;
+}
+
+#radiobox {
+  padding: 0.5em;
+  border: 0.01em solid gray;
+  background-color: transparent;
+  text-align: left;
+  overflow-y: scroll;
+  -moz-box-shadow: inset 0 0 4em black;
+  -webkit-box-shadow: inset 0 0 4em black;
+  box-shadow: inset 0 0 4em black;
+}
+
+.item-list {
+  padding: 0.1em;
+  margin: 0.1em;
+  border: 0;
+  -webkit-transition: background-color 0.5s, box-shadow 0.5s, border 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, border 0.5s;
+}
+
+.item-list img {
+  width: 2em;
+  margin: 0.2em;
+  padding: 0.2em;
+  background-color: black;
+  border: 0.1em solid gray;
+}
+
+.item-list label {
+  color: white !important;
+  font-size: 0.8em;
+  margin: 0.4em;
+}
+
+.item-list label:hover {
+  cursor: pointer;
+}
+
+.item-list:not(.playing):hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0.1em solid cyan;
+  -moz-box-shadow: 0.1em 0.1em 0.1em cyan,
+    -0.1em -0.1em 0.1em cyan,
+    0.1em -0.1em 0.1em cyan,
+    -0.1em 0.1em 0.1em cyan;
+  -webkit-box-shadow: 0.1em 0.1em 0.1em cyan,
+    -0.1em -0.1em 0.1em cyan,
+    0.1em -0.1em 0.1em cyan,
+    -0.1em 0.1em 0.1em cyan;
+  box-shadow: 0.1em 0.1em 0.1em cyan,
+    -0.1em -0.1em 0.1em cyan,
+    0.1em -0.1em 0.1em cyan,
+    -0.1em 0.1em 0.1em cyan;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.playing {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  font-weight: bold !important;
+  border-radius: 0.3em !important;
+  animation-name: playing_anim;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes playing_anim {
+  0% {
+    -moz-box-shadow:
+      0.1em 0.1em 0.1em cyan,
+      -0.1em -0.1em 0.1em cyan,
+      0.1em -0.1em 0.1em cyan,
+      -0.1em 0.1em 0.1em cyan;
+    -webkit-box-shadow:
+      0.1em 0.1em 0.1em cyan,
+      -0.1em -0.1em 0.1em cyan,
+      0.1em -0.1em 0.1em cyan,
+      -0.1em 0.1em 0.1em cyan;
+    box-shadow:
+      0.1em 0.1em 0.1em cyan,
+      -0.1em -0.1em 0.1em cyan,
+      0.1em -0.1em 0.1em cyan,
+      -0.1em 0.1em 0.1em cyan;
+  }
+
+  50% {
+    -moz-box-shadow:
+      0.2em 0.2em 2em cyan,
+      -0.2em -0.2em 2em cyan,
+      0.2em -0.2em 2em cyan,
+      -0.2em 0.2em 2em cyan;
+    -webkit-box-shadow:
+      0.2em 0.2em 2em cyan,
+      -0.2em -0.2em 2em cyan,
+      0.2em -0.2em 2em cyan,
+      -0.2em 0.2em 2em cyan;
+    box-shadow:
+      0.2em 0.2em 2em cyan,
+      -0.2em -0.2em 2em cyan,
+      0.2em -0.2em 2em cyan,
+      -0.2em 0.2em 2em cyan;
+  }
+
+  100% {
+    -moz-box-shadow:
+      0.1em 0.1em 0.1em cyan,
+      -0.1em -0.1em 0.1em cyan,
+      0.1em -0.1em 0.1em cyan,
+      -0.1em 0.1em 0.1em cyan;
+    -webkit-box-shadow:
+      0.1em 0.1em 0.1em cyan,
+      -0.1em -0.1em 0.1em cyan,
+      0.1em -0.1em 0.1em cyan,
+      -0.1em 0.1em 0.1em cyan;
+    box-shadow:
+      0.1em 0.1em 0.1em cyan,
+      -0.1em -0.1em 0.1em cyan,
+      0.1em -0.1em 0.1em cyan,
+      -0.1em 0.1em 0.1em cyan;
+  }
+}

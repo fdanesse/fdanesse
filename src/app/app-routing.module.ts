@@ -7,6 +7,7 @@ import { JamediaComponent } from './views/portafolios/jamedia/jamedia.component'
 import { NotfoundComponent } from './views/notfound/notfound.component';
 import { JamediaPythonComponent } from './views/portafolios/jamedia/jamedia-python/jamedia-python.component';
 import { JamediaValaComponent } from './views/portafolios/jamedia/jamedia-vala/jamedia-vala.component';
+import { JamediaRadioComponent } from './views/portafolios/jamedia/jamedia-radio/jamedia-radio.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'jamedia', component: JamediaComponent },
   { path: 'jamedia_python', component: JamediaPythonComponent },
   { path: 'jamedia_vala', component: JamediaValaComponent },
+  { path: 'jamedia_radio', component: JamediaRadioComponent },
   { path: '**', component: NotfoundComponent }
 ];
 
