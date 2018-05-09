@@ -173,6 +173,10 @@ figcaption a:hover {
 	text-align: left;
 }
 
+li {
+  font-size: 0.8em;
+}
+
 footer {
   width: 100% !important;
 	background-color: black;
