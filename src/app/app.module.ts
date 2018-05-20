@@ -15,7 +15,10 @@ import { NotfoundComponent } from './views/notfound/notfound.component';
 import { JamediaPythonComponent } from './views/portafolios/jamedia/jamedia-python/jamedia-python.component';
 import { JamediaValaComponent } from './views/portafolios/jamedia/jamedia-vala/jamedia-vala.component';
 import { JamediaRadioComponent } from './views/portafolios/jamedia/jamedia-radio/jamedia-radio.component';
-import { PythonJovenComponent } from './views/python-joven/python-joven.component';
+
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireStorageModule } from 'angularfire2/storage';
+// import {environment} from '../environments/environment';
 
 
 @NgModule({
@@ -29,13 +32,14 @@ import { PythonJovenComponent } from './views/python-joven/python-joven.componen
     JamediaPythonComponent,
     JamediaValaComponent,
     JamediaRadioComponent,
-    PythonJovenComponent
   ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
     AppRoutingModule,
-    BrowserAnimationsModule // https://coursetro.com/posts/code/63/Angular-4-Animation-Tutorial
+    BrowserAnimationsModule, // https://coursetro.com/posts/code/63/Angular-4-Animation-Tutorial
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
