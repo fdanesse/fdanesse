@@ -1,0 +1,32 @@
+<div class='container-fluid'>
+
+<nav class='row' id='navbarLenguajes'>
+  <a *ngFor='let l of lenguajes' (click)='lenguajeSelected($event)'>
+    <strong>{{l}}</strong></a>
+</nav>
+
+<div class='row'>
+  <nav class='col-md-3' id='navbarTemas' *ngIf='currentTemas'>
+    <a *ngFor='let t of currentTemas' (click)='temaSelected($event)'>
+      <strong>{{t.Titulo}}</strong></a>
+  </nav>
+
+  <div class='col-md-9' id="lessonContainer" *ngIf='currentLesson'>
+    <!-- <pre><code mwlHighlightJs [source]="source" language="typescript"></code></pre> -->
+    <!-- <pre>{{currentLesson}}</pre> -->
+    <pdf-viewer [src]='url'></pdf-viewer>
+  </div>
+</div>
+<!--
+<pdf-viewer [src]="profileUrl"
+  [page]="page"
+  [original-size]="true"
+  [zoom]="zoom_to"
+  style="display: block;"
+  [show-all]="false"></pdf-viewer>
+-->
+</div>
+
+<!--
+  <div id='home_button'><a routerLink='/home'><i class="fa fa-home fa-2x"></i></a></div>
+-->

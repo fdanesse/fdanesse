@@ -1,0 +1,99 @@
+/*
+#home_button {
+	float:left;
+	margin: 0.4em;
+	position: absolute;
+	z-index: 1;
+}
+.fa {
+  color: white;
+}
+.fa-home {
+  color: black;
+}
+.fa-home:hover,.fa-linkedin:hover, .fa-youtube-square:hover {
+  cursor: pointer;
+  color: red;
+  text-shadow: 0.025em 0.025em 0.025em black !important;
+}
+*/
+
+.container-fluid {
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  background-color: rgb(96,96,96);
+}
+
+a, a:link, a:visited, a:active, a:focus{
+  text-decoration: none;
+}
+a {
+  color: white !important;
+  padding: 5px;
+  font-size: 1.2em;
+}
+a:hover {
+  color:orange !important;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+nav {
+  /*min-width: 100%;*/
+  padding: 10px;
+  background-color: black;
+}
+/*
+#navbarLenguajes {
+}
+*/
+#navbarTemas {
+  display: -webkit-flex !important;
+	display: flex !important;
+	-webkit-flex-direction: column !important;
+  flex-direction: column !important;
+	-webkit-justify-content: left !important;
+  justify-content: left !important;
+  -webkit-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+
+  background-color: rgb(96,96,96);
+  margin-top: 3px;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  animation: fade 1s;
+}
+#navbarTemas a {
+  font-size: 0.9em;
+}
+#lessonContainer, pdf-viewer {
+  color: white;
+  background-color: rgb(192,192,192);
+  margin-top: 3px;
+  padding: 5px;
+
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  animation: fade 1s;
+  -webkit-animation: fade 1s;
+  -moz-animation: fade 1s;
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-webkit-keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}

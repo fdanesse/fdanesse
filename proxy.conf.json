@@ -1,0 +1,7 @@
+{
+  "/Guias/*": {
+    "target": "https://firebasestorage.googleapis.com/v0/b/fdanesse-f2b2c.appspot.com/o/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
