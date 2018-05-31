@@ -80,7 +80,12 @@ nav {
   -moz-animation: fade 1s;
 }
 
-h3, h1, span, p, h6 {
+h6 {
+  text-align: center;
+  margin: auto;
+}
+
+h3, h1, span {
   color: black;
 }
 

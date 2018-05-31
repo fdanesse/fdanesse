@@ -121,7 +121,7 @@ export class GuiasComponent implements OnInit {
     const ref = this.storage.storage.ref(path);
     ref.getDownloadURL()
       .then(success => {
-        this.url = success; // FIXME cross origin: success.replace('https://firebasestorage.googleapis.com/v0/b/fdanesse-f2b2c.appspot.com/o/', '');
+        this.url = success; // success.replace('https://firebasestorage.googleapis.com/v0/b/fdanesse-f2b2c.appspot.com/o/', '');
         // FIXME: Lo más fácil window.open(this.profileUrl, '_blank');
         // const blob = new Blob([success], {type: 'application/pdf'});
         // this.profileUrl = URL.createObjectURL(blob);

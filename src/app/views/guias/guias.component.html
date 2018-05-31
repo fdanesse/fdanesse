@@ -16,6 +16,8 @@
     <!-- <pre><code mwlHighlightJs [source]="source" language="typescript"></code></pre> -->
     <!-- <pre>{{currentLesson}}</pre> -->
 
+    <h6><a href={{url}} target='_blank'>Abrir en otra pestaña</a></h6>
+
     <div *ngIf="isLoaded" style="text-align: center;">
       <h3>{{titulo}}</h3>
       <button class="btn btn-primary" (click)="prevPage()" [disabled]="page === 1">Prev</button>
@@ -25,8 +27,6 @@
 
     <div *ngIf="!isLoaded" style="text-align: center;">
       <h1>Cargando...</h1>
-      <p>Existe un bug en el visor pdf.</p>
-      <h6><a href={{url}} target='_blank'>Abir pdf en otra ventana</a></h6>
     </div>
 
     <pdf-viewer [hidden]="!isLoaded" [src]='url' [show-all]="false" [page]="page"
