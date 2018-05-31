@@ -1,27 +1,18 @@
-/*
-#home_button {
-	float:left;
-	margin: 0.4em;
-	position: absolute;
-	z-index: 1;
+html, body, main {
+  background-color: rgb(96,96,96);
+  min-height: 100vh;
 }
-.fa {
-  color: white;
-}
-.fa-home {
-  color: black;
-}
-.fa-home:hover,.fa-linkedin:hover, .fa-youtube-square:hover {
-  cursor: pointer;
-  color: red;
-  text-shadow: 0.025em 0.025em 0.025em black !important;
-}
-*/
 
 .container-fluid {
   width: 100%;
+  min-height: 100vh;
   padding: 5px;
   margin: 0;
+  background-color: rgb(96,96,96);
+}
+
+.main {
+  min-height: 100vh;
   background-color: rgb(96,96,96);
 }
 
@@ -39,6 +30,9 @@ a:hover {
   transition: 0.2s;
 }
 
+.selected {
+  color:orange !important;
+}
 
 nav {
   /*min-width: 100%;*/
@@ -58,16 +52,19 @@ nav {
   justify-content: left !important;
   -webkit-flex-wrap: wrap !important;
   flex-wrap: wrap !important;
-
   background-color: rgb(96,96,96);
   margin-top: 3px;
   display: block;
   visibility: visible;
+  /*
   opacity: 1;
   animation: fade 1s;
+  */
 }
 #navbarTemas a {
   font-size: 0.9em;
+  opacity: 1;
+  animation: fade 1s;
 }
 #lessonContainer, pdf-viewer {
   color: white;
@@ -81,6 +78,10 @@ nav {
   animation: fade 1s;
   -webkit-animation: fade 1s;
   -moz-animation: fade 1s;
+}
+
+h3, h1, span, p, h6 {
+  color: black;
 }
 
 @keyframes fade {

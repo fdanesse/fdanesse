@@ -1,11 +1,12 @@
 <div class='container-fluid'>
 
 <nav class='row' id='navbarLenguajes'>
-  <a *ngFor='let l of lenguajes' (click)='lenguajeSelected($event)'>
-    <strong>{{l}}</strong></a>
+  <a class="navbar-brand" routerLink="/home"><i class="fa fa-home fa-2x"></i></a>
+  <a *ngFor='let key of Object.keys(temas)' (click)='lenguajeSelected($event)'>
+      <strong>{{key}}</strong></a>
 </nav>
 
-<div class='row'>
+<div class='row main'>
   <nav class='col-md-3' id='navbarTemas' *ngIf='currentTemas'>
     <a *ngFor='let t of currentTemas' (click)='temaSelected($event)'>
       <strong>{{t.Titulo}}</strong></a>
@@ -14,7 +15,24 @@
   <div class='col-md-9' id="lessonContainer" *ngIf='currentLesson'>
     <!-- <pre><code mwlHighlightJs [source]="source" language="typescript"></code></pre> -->
     <!-- <pre>{{currentLesson}}</pre> -->
-    <pdf-viewer [src]='url'></pdf-viewer>
+
+    <div *ngIf="isLoaded" style="text-align: center;">
+      <h3>{{titulo}}</h3>
+      <button class="btn btn-primary" (click)="prevPage()" [disabled]="page === 1">Prev</button>
+      <span>{{ page }} / {{ totalPages }}</span>
+      <button class="btn btn-primary" (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+    </div>
+
+    <div *ngIf="!isLoaded" style="text-align: center;">
+      <h1>Cargando...</h1>
+      <p>Existe un bug en el visor pdf.</p>
+      <h6><a href={{url}} target='_blank'>Abir pdf en otra ventana</a></h6>
+    </div>
+
+    <pdf-viewer [hidden]="!isLoaded" [src]='url' [show-all]="false" [page]="page"
+      (after-load-complete)="afterLoadComplete($event)" [original-size]="false"
+      [fit-to-page]="true" [render-text]="true" [external-link-target]="'blank'"
+      (on-progress)="onProgress($event)"></pdf-viewer>
   </div>
 </div>
 <!--
