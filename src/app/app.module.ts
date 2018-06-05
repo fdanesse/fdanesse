@@ -19,9 +19,11 @@ import { GuiasComponent } from './views/guias/guias.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { FilesService } from './servicios/files.service';
 
 
 @NgModule({
@@ -47,10 +49,11 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     // https://github.com/angular/angularfire2/blob/master/docs/storage/storage.md
     AngularFireModule.initializeApp(environment.firebaseconf),
     AngularFireStorageModule,
+    AngularFirestoreModule, // https://angularfirebase.com/lessons/firestore-with-angularfire-basics/
 
     PdfViewerModule
   ],
-  providers: [],
+  providers: [FilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,13 +2,13 @@
 
 <nav class='row' id='navbarLenguajes'>
   <a class="navbar-brand" routerLink="/home"><i class="fa fa-home fa-2x"></i></a>
-  <a *ngFor='let key of Object.keys(temas)' (click)='lenguajeSelected($event)'>
-      <strong>{{key}}</strong></a>
+  <a *ngFor='let lenguaje of lenguajes' (click)='lenguajeSelected($event)'>
+      <strong>{{lenguaje}}</strong></a>
 </nav>
 
 <div class='row main'>
   <nav class='col-md-3' id='navbarTemas' *ngIf='currentTemas'>
-    <a *ngFor='let t of currentTemas' (click)='temaSelected($event)'>
+    <a *ngFor='let t of currentTemas' (click)='leccionSelected($event)'>
       <strong>{{t.Titulo}}</strong></a>
   </nav>
 
@@ -16,7 +16,7 @@
     <!-- <pre><code mwlHighlightJs [source]="source" language="typescript"></code></pre> -->
     <!-- <pre>{{currentLesson}}</pre> -->
 
-    <h6><a href={{url}} target='_blank'>Abrir en otra pestaña</a></h6>
+    <h6><a href={{pdfURL}} target='_blank'>Abrir en otra pestaña</a></h6>
 
     <div *ngIf="isLoaded" style="text-align: center;">
       <h3>{{titulo}}</h3>
@@ -29,22 +29,11 @@
       <h1>Cargando...</h1>
     </div>
 
-    <pdf-viewer [hidden]="!isLoaded" [src]='url' [show-all]="false" [page]="page"
+    <pdf-viewer [hidden]="!isLoaded" [src]='pdfURL' [show-all]="false" [page]="page"
       (after-load-complete)="afterLoadComplete($event)" [original-size]="false"
       [fit-to-page]="true" [render-text]="true" [external-link-target]="'blank'"
       (on-progress)="onProgress($event)"></pdf-viewer>
   </div>
 </div>
-<!--
-<pdf-viewer [src]="profileUrl"
-  [page]="page"
-  [original-size]="true"
-  [zoom]="zoom_to"
-  style="display: block;"
-  [show-all]="false"></pdf-viewer>
--->
-</div>
 
-<!--
-  <div id='home_button'><a routerLink='/home'><i class="fa fa-home fa-2x"></i></a></div>
--->
+</div>
