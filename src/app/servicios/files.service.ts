@@ -12,20 +12,29 @@ import { Observable } from 'rxjs';
 })
 export class FilesService {
 
-  private collection$: AngularFirestoreCollection<any>;
-  public collectionObserver: Observable<Array<any>>;
+  // private collection$: AngularFirestoreCollection<any>;
+  // public collectionObserver: Observable<Array<any>>;
 
   constructor(public db: AngularFirestore, private storage: AngularFireStorage) {
-    this.collection$ = this.db.collection('Guias');
-    this.collectionObserver = this.collection$.valueChanges();
+    // this.collection$ = this.db.collection('Guias');
+    // this.collectionObserver = this.collection$.valueChanges();
   }
 
   getStorageDirectoryReference(path: string) {
+    // Storage Dirpath Observer.
     return this.storage.storage.ref(path);
   }
 
-  getDocument(lenguaje: string) {
-    const document: AngularFirestoreDocument<any> = this.collection$.doc(lenguaje);
+  getCollection(path: string) {
+    // Database collection observer.
+    const collection$ = this.db.collection(path);
+    return collection$.valueChanges();
+  }
+
+  getDocument(path: string, lenguaje: string) {
+    // Database Document Observer.
+    const collection$ = this.db.collection(path);
+    const document: AngularFirestoreDocument<any> = collection$.doc(lenguaje);
     // this.document$: Observable<any> = document.valueChanges();
     return document.valueChanges();
   }

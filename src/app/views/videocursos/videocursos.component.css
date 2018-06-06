@@ -1,0 +1,96 @@
+html, body, main {
+  background-color: rgb(96,96,96);
+  min-height: 100vh;
+}
+
+.container-fluid {
+  width: 100%;
+  min-height: 100vh;
+  padding: 5px;
+  margin: 0;
+  background-color: rgb(96,96,96);
+}
+
+.main {
+  min-height: 100vh;
+  background-color: rgb(96,96,96);
+}
+
+a, a:link, a:visited, a:active, a:focus{
+  text-decoration: none;
+}
+a {
+  color: white !important;
+  padding: 5px;
+  font-size: 1.2em;
+}
+a:hover {
+  color:orange !important;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.selected {
+  color:orange !important;
+}
+
+nav {
+  padding: 10px;
+  background-color: black;
+}
+
+#navbarTemas, #navbarVideos {
+  display: block;
+  display: -webkit-flex !important;
+	display: flex !important;
+	-webkit-flex-direction: column !important;
+  flex-direction: column !important;
+	-webkit-justify-content: left !important;
+  justify-content: left !important;
+  -webkit-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+  background-color: rgb(96,96,96);
+  margin-top: 3px;
+}
+#navbarVideos {
+  background-color: rgb(128,128,128);
+}
+#navbarTemas a, #navbarVideos a {
+  font-size: 0.9em;
+  opacity: 1;
+  animation: fade 1s;
+}
+#lessonContainer {
+  display: block;
+  color: white;
+  background-color: black;
+  margin-top: 3px;
+  padding: 5px;
+  display: -webkit-flex !important;
+	display: flex !important;
+	-webkit-flex-direction: column !important;
+  flex-direction: column !important;
+	-webkit-justify-content: center !important;
+  justify-content: center !important;
+}
+
+video {
+  width: 90%;
+  margin: auto;
+  margin-top: 0 !important;
+}
+
+@keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-webkit-keyframes fade {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}

@@ -24,6 +24,7 @@ import { environment } from '../environments/environment';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FilesService } from './servicios/files.service';
+import { VideocursosComponent } from './views/videocursos/videocursos.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { FilesService } from './servicios/files.service';
     JamediaValaComponent,
     JamediaRadioComponent,
     GuiasComponent,
+    VideocursosComponent,
   ],
   imports: [
     BrowserModule,

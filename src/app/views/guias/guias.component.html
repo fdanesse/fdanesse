@@ -1,6 +1,6 @@
 <div class='container-fluid'>
 
-<nav class='row' id='navbarLenguajes'>
+<nav class='row animated bounceInDown' id='navbarLenguajes'>
   <a class="navbar-brand" routerLink="/home"><i class="fa fa-home fa-2x"></i></a>
   <a *ngFor='let lenguaje of lenguajes' (click)='lenguajeSelected($event)'>
       <strong>{{lenguaje}}</strong></a>

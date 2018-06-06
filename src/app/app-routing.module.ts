@@ -9,6 +9,7 @@ import { JamediaPythonComponent } from './views/portafolios/jamedia/jamedia-pyth
 import { JamediaValaComponent } from './views/portafolios/jamedia/jamedia-vala/jamedia-vala.component';
 import { JamediaRadioComponent } from './views/portafolios/jamedia/jamedia-radio/jamedia-radio.component';
 import { GuiasComponent } from './views/guias/guias.component';
+import { VideocursosComponent } from './views/videocursos/videocursos.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'jamedia_vala', component: JamediaValaComponent },
   { path: 'jamedia_radio', component: JamediaRadioComponent },
   { path: 'guias', component: GuiasComponent },
+  { path: 'videocursos', component: VideocursosComponent },
   { path: '**', component: NotfoundComponent }
 ];
 

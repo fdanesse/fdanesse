@@ -1,0 +1,26 @@
+<div class='container-fluid'>
+
+  <nav class='row animated bounceInDown' id='navbarLenguajes'>
+    <a class="navbar-brand" routerLink="/home"><i class="fa fa-home fa-2x"></i></a>
+    <a *ngFor='let lenguaje of lenguajes' (click)='lenguajeSelected($event)'>
+        <strong>{{lenguaje}}</strong></a>
+  </nav>
+
+  <div class='row main'>
+    <nav class='col-md-3 animated bounceInLeft' id='navbarTemas'>
+      <a *ngFor='let t of currentTemas' (click)='leccionSelected($event)'>
+        <strong>{{t[0]}}</strong></a>
+
+      <nav id='navbarVideos' *ngIf='currentVideos.length > 0'> <!--class='col-md-12'-->
+        <a *ngFor='let t of currentVideos' (click)='videoSelected($event)'>
+          <strong>{{t.Titulo}}</strong></a>
+      </nav>
+    </nav>
+
+    <div class='col-md-9 animated bounceInRight' id="lessonContainer">
+      <video video autobuffer controls='true' *ngIf='videoURL'
+        type="video/webm" autoplay='true' src={{videoURL}}></video>
+    </div>
+  </div>
+
+  </div>
