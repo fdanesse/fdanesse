@@ -10,6 +10,7 @@ import { JamediaValaComponent } from './views/portafolios/jamedia/jamedia-vala/j
 import { JamediaRadioComponent } from './views/portafolios/jamedia/jamedia-radio/jamedia-radio.component';
 import { GuiasComponent } from './views/guias/guias.component';
 import { VideocursosComponent } from './views/videocursos/videocursos.component';
+import { AuthGuard } from './guardianes/auth.guard';
 
 
 const routes: Routes = [
@@ -22,8 +23,8 @@ const routes: Routes = [
   { path: 'jamedia_python', component: JamediaPythonComponent },
   { path: 'jamedia_vala', component: JamediaValaComponent },
   { path: 'jamedia_radio', component: JamediaRadioComponent },
-  { path: 'guias', component: GuiasComponent },
-  { path: 'videocursos', component: VideocursosComponent },
+  { path: 'guias', component: GuiasComponent, canActivate: [AuthGuard] },
+  { path: 'videocursos', component: VideocursosComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotfoundComponent }
 ];
 

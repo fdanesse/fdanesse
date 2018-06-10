@@ -21,7 +21,8 @@ a, a:link, a:visited, a:active, a:focus{
 }
 a {
   color: white !important;
-  padding: 5px;
+  padding: 5px !important;
+  margin: 0 !important;
   font-size: 1.2em;
 }
 a:hover {
@@ -49,11 +50,11 @@ nav {
   justify-content: left !important;
   -webkit-flex-wrap: wrap !important;
   flex-wrap: wrap !important;
-  background-color: rgb(96,96,96);
+  background-color: rgb(50,50,50);
   margin-top: 3px;
 }
 #navbarVideos {
-  background-color: rgb(128,128,128);
+  background-color: rgb(70,70,70);
 }
 #navbarTemas a, #navbarVideos a {
   font-size: 0.9em;

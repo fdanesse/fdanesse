@@ -26,6 +26,10 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FilesService } from './servicios/files.service';
 import { VideocursosComponent } from './views/videocursos/videocursos.component';
 
+import { AuthGuard } from './guardianes/auth.guard';
+import { AuthService } from './servicios/auth.service';
+
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -49,13 +53,14 @@ import { VideocursosComponent } from './views/videocursos/videocursos.component'
 
     // https://angularfirebase.com/lessons/firebase-storage-with-angularfire-dropzone-file-uploader/
     // https://github.com/angular/angularfire2/blob/master/docs/storage/storage.md
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseconf),
     AngularFireStorageModule,
     AngularFirestoreModule, // https://angularfirebase.com/lessons/firestore-with-angularfire-basics/
 
     PdfViewerModule
   ],
-  providers: [FilesService],
+  providers: [AuthService, AuthGuard, AngularFireAuth, FilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

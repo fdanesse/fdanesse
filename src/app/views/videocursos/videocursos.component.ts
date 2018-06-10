@@ -14,13 +14,16 @@ export class VideocursosComponent implements OnInit, OnDestroy {
 
   lenguajes = [];
   currentLenguaje;
-  currentTemas = [];
+  currentCursos = [];
   currentVideos = [];
-  currentLesson;
+  currentCurso;
   currentVideo;
   videoURL = '';
   titulo = '';
-  selected = [];
+
+  widgetLenguajeselected;
+  widgetCursoselected;
+  widgetVideoselected;
 
   lenguajesSubscription;
   temasSubscription;
@@ -49,7 +52,7 @@ export class VideocursosComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngOnDestroy() {
     if (this.temasSubscription) {
@@ -62,30 +65,30 @@ export class VideocursosComponent implements OnInit, OnDestroy {
 
   lenguajeSelected(event) {
     // El usuario selecciona un lenguaje
-    this.currentTemas = [];
+    if (this.currentLenguaje === event.target.innerHTML) {
+      return;
+    }
+    this.currentCursos = [];
     this.currentVideos = [];
     this.currentLenguaje = event.target.innerHTML;
     const widget = event.target as HTMLElement;
-    if (!this.selected.includes(widget)) {
-      this.selected.forEach(element => {
-        element.classList.remove('selected');
-      });
-      this.selected = [];
-      widget.classList.add('selected');
-      this.selected.push(widget);
+    if (this.widgetLenguajeselected) {
+      this.widgetLenguajeselected.classList.remove('selected');
     }
+    this.widgetLenguajeselected = widget;
+    this.widgetLenguajeselected.classList.add('selected');
 
     if (this.temasSubscription) {
       this.temasSubscription.unsubscribe();
     }
     this.temasSubscription = this.filesService.getDocument('Cursos y Videos', this.currentLenguaje).
       subscribe(data => {
-        this.currentTemas = [];
+        this.currentCursos = [];
         if (data) {
           const obj = data[this.currentLenguaje];
           for (const leng in obj) {
             if (leng) {
-              this.currentTemas.push([obj[leng]['DirPath'], obj[leng]['files']]); // obj[leng]['DirPath'] {DirPath: ?, files: []?}
+              this.currentCursos.push([obj[leng]['DirPath'], obj[leng]['files']]); // obj[leng]['DirPath'] {DirPath: ?, files: []?}
             }
           }
         }
@@ -93,24 +96,24 @@ export class VideocursosComponent implements OnInit, OnDestroy {
 
   }
 
-  leccionSelected(event) {
+  cursoSelected(event) {
     // El usuario selecciona una serie de lecciones
-    const lesson = event.target.innerHTML;
-    this.currentLesson = lesson;
+    if (this.currentCurso === event.target.innerHTML) {
+      return;
+    }
+    const curso = event.target.innerHTML;
+    this.currentCurso = curso;
     this.currentVideos = [];
     const widget = event.target as HTMLElement;
-    if (!this.selected.includes(widget)) {
-      if (this.selected.length > 1) {
-        const w = this.selected.pop();
-        w.classList.remove('selected');
-      }
-      widget.classList.add('selected');
-      this.selected.push(widget);
+    if (this.widgetCursoselected) {
+      this.widgetCursoselected.classList.remove('selected');
     }
+    this.widgetCursoselected = widget;
+    this.widgetCursoselected.classList.add('selected');
 
-    for (const lec in this.currentTemas) {
-      if (this.currentTemas[lec][0] === lesson) {
-        for (const videos of this.currentTemas[lec][1]) {
+    for (const lec in this.currentCursos) {
+      if (this.currentCursos[lec][0] === curso) {
+        for (const videos of this.currentCursos[lec][1]) {
           this.currentVideos.push(videos);
         }
         break;
@@ -120,22 +123,19 @@ export class VideocursosComponent implements OnInit, OnDestroy {
 
   videoSelected(event) {
     // El usuario selecciona una lección
-    const lesson = event.target.innerHTML;
+    const video = event.target.innerHTML;
     const widget = event.target as HTMLElement;
-    if (!this.selected.includes(widget)) {
-      if (this.selected.length > 1) {
-        const w = this.selected.pop();
-        w.classList.remove('selected');
-      }
-      widget.classList.add('selected');
-      this.selected.push(widget);
+    if (this.widgetVideoselected) {
+      this.widgetVideoselected.classList.remove('selected');
     }
+    this.widgetVideoselected = widget;
+    this.widgetVideoselected.classList.add('selected');
 
     // Cursos y Videos/Angular/01 - Angular Cli/01 - What is Angular CLI-rJ9o4TyhSuo.webm
     for (const id in this.currentVideos) {
-      if (this.currentVideos[id].Titulo === lesson) {
-        this.titulo = this.currentLenguaje + ' - ' + lesson;
-        this.currentVideo = 'Cursos y Videos/' + this.currentLenguaje + '/' + this.currentLesson + '/' + this.currentVideos[id].path;
+      if (this.currentVideos[id].Titulo === video) {
+        this.titulo = this.currentLenguaje + ' - ' + video;
+        this.currentVideo = 'Cursos y Videos/' + this.currentLenguaje + '/' + this.currentCurso + '/' + this.currentVideos[id].path;
         this.getDocumentVideo();
         break;
       }
@@ -148,7 +148,7 @@ export class VideocursosComponent implements OnInit, OnDestroy {
     const ref = this.filesService.getStorageDirectoryReference(this.currentVideo);
     ref.getDownloadURL()
       .then(success => {
-        console.log(success);
+        // console.log(success);
         this.videoURL = success;
         })
       .catch(err => console.log('ERROR getDocumentLesson:', err));

@@ -1,8 +1,15 @@
+<div id='loginbox'>
+  <button class='buttonlogin' (click)="onLogin('google')" *ngIf='!userlogged.providerId'>Log-in</button>
+  <button class='buttonlogin' (click)="logout()" *ngIf='userlogged.providerId'>Log-out</button>
+</div>
+<!--<pre>{{ userlogged | json }}</pre>-->
+
+
 <div class="container" [style.background-image]="'url(' + '../../assets/imgs/fondos/04.png' + ')'">
   <h1 class='animated bounceInDown'>Flavio Danesse</h1>
   <!--https://www.npmjs.com/package/angular-font-awesome-->
-  <h3 class='animated bounceInLeft'><i class="fa fa-envelope-square"></i> fdanesse@gmail.com <a href='https://www.linkedin.com/in/flavio-danesse-6575b719/' target='_blank'>
-    <i class="fa fa-linkedin"></i></a>
+  <h3 class='animated bounceInLeft'>fdanesse@gmail.com <a href='https://www.linkedin.com/in/flavio-danesse-6575b719/' target='_blank'>
+    <i class="fa fa-linkedin"></i></a> <!--<i class="fa fa-envelope-square"></i>-->
     <a href='https://www.youtube.com/channel/UCRLDhEFG908uY-53h39CvWw' target='_blank'><i class="fa fa-youtube-square"></i></a>
   </h3>
   <div class="divider animated bounceInRight"></div>
