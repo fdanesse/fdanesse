@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 import { map, take, tap } from 'rxjs/operators';
 
 import { Fduser } from '../modelos/fduser';
+import { FilesService } from '../servicios/files.service';
 
 
 @Injectable({
@@ -21,13 +22,18 @@ export class AuthService implements OnDestroy {
 
   private __obs: Subscription;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    private fileService: FilesService) {
 
     // userLogged Mantiene los datos del usuario logueado
     this.__obs = this.obs()
       .subscribe(user => {
         if (user) {
-          this.changeUser(this.convertDataAuth(user));
+          console.log('FIXME: Si el usuario no está registrado, registrarlo');
+          const u = this.convertDataAuth(user);
+          this.changeUser(u);
+          this.fileService.saveUser(u);
         }else {
           this.changeUser(null);
         }

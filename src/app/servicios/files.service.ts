@@ -6,19 +6,15 @@ import { AngularFirestore,
 import { Observable } from 'rxjs';
 // https://angularfirebase.com/lessons/firestore-with-angularfire-basics/
 
+import { Fduser } from '../modelos/fduser';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilesService {
 
-  // private collection$: AngularFirestoreCollection<any>;
-  // public collectionObserver: Observable<Array<any>>;
-
-  constructor(public db: AngularFirestore, private storage: AngularFireStorage) {
-    // this.collection$ = this.db.collection('Guias');
-    // this.collectionObserver = this.collection$.valueChanges();
-  }
+  constructor(public db: AngularFirestore, private storage: AngularFireStorage) { }
 
   getStorageDirectoryReference(path: string) {
     // Storage Dirpath Observer.
@@ -31,11 +27,18 @@ export class FilesService {
     return collection$.valueChanges();
   }
 
-  getDocument(path: string, lenguaje: string) {
+  getDocument(databasename: string, documentname: string) {
     // Database Document Observer.
-    const collection$ = this.db.collection(path);
-    const document: AngularFirestoreDocument<any> = collection$.doc(lenguaje);
-    // this.document$: Observable<any> = document.valueChanges();
+    const collection$ = this.db.collection(databasename);
+    const document: AngularFirestoreDocument<any> = collection$.doc(documentname);
     return document.valueChanges();
+  }
+
+  saveUser(user: Fduser) {
+    // coleccion.add({title: cont, title: cont ...}) id automático
+    const collection$ = this.db.collection('users');
+    collection$.doc(user.uid).set( (Object.assign({}, user)) )
+      .then(success => console.log('SAVE', success))
+      .catch(err => console.log('ERROR en saveUser', err));
   }
 }

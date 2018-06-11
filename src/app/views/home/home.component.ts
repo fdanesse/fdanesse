@@ -16,17 +16,13 @@ export class HomeComponent implements OnDestroy {
   constructor(public authService: AuthService) {
     this.userloggedSubscription = this.authService.obsLogged.subscribe(user => {
       this.userlogged = Object.assign({}, user); // user puede ser null
-      if (this.userlogged && this.userlogged.uid) {
-        console.log('*** Usuario Logueado', this.userlogged.uid);
-      }
+      // if (this.userlogged && this.userlogged.uid) {}
     });
   }
 
   onLogin(provider: string) {
     this.authService.login(provider)
-      .then( (user) => {
-        console.log('home.component onLogin:', user.user.uid);
-      })
+      // .then( (user) => {})
       .catch( (err) => {
         alert('No fue posible Autenticarse');
         console.log('AUTH ERROR:', err);
