@@ -12,12 +12,13 @@ import { FilesService } from '../../servicios/files.service';
 })
 export class VideocursosComponent implements OnInit, OnDestroy {
 
-  lenguajes = [];
+  lenguajes = new Array();
   currentLenguaje;
-  currentCursos = [];
-  currentVideos = [];
+  currentCursos = new Array();
+  currentVideos = new Array();
   currentCurso;
   currentVideo;
+  assets = new Array();
   videoURL = '';
   titulo = '';
 
@@ -27,6 +28,8 @@ export class VideocursosComponent implements OnInit, OnDestroy {
 
   lenguajesSubscription;
   temasSubscription;
+
+  temp;
 
   constructor(public filesService: FilesService) {
     this.getLenguajes();
@@ -39,8 +42,9 @@ export class VideocursosComponent implements OnInit, OnDestroy {
     }
     this.lenguajesSubscription = this.filesService.getCollection('Cursos y Videos').
       subscribe(data => {
-        this.lenguajes = [];
+        this.lenguajes = new Array();
         if (data) {
+          this.temp = Object.assign(data);
           data.map((val) => { // data == Array - val == Array
             for (const leng in val) {
               if (leng) {
@@ -68,8 +72,8 @@ export class VideocursosComponent implements OnInit, OnDestroy {
     if (this.currentLenguaje === event.target.innerHTML) {
       return;
     }
-    this.currentCursos = [];
-    this.currentVideos = [];
+    this.currentCursos = new Array();
+    this.currentVideos = new Array();
     this.currentLenguaje = event.target.innerHTML;
     const widget = event.target as HTMLElement;
     if (this.widgetLenguajeselected) {
@@ -83,7 +87,7 @@ export class VideocursosComponent implements OnInit, OnDestroy {
     }
     this.temasSubscription = this.filesService.getDocument('Cursos y Videos', this.currentLenguaje).
       subscribe(data => {
-        this.currentCursos = [];
+        this.currentCursos = new Array();
         if (data) {
           const obj = data[this.currentLenguaje];
           for (const leng in obj) {
@@ -98,12 +102,9 @@ export class VideocursosComponent implements OnInit, OnDestroy {
 
   cursoSelected(event) {
     // El usuario selecciona una serie de lecciones
-    if (this.currentCurso === event.target.innerHTML) {
-      return;
-    }
     const curso = event.target.innerHTML;
     this.currentCurso = curso;
-    this.currentVideos = [];
+    this.currentVideos = new Array();
     const widget = event.target as HTMLElement;
     if (this.widgetCursoselected) {
       this.widgetCursoselected.classList.remove('selected');
@@ -124,6 +125,7 @@ export class VideocursosComponent implements OnInit, OnDestroy {
   videoSelected(event) {
     // El usuario selecciona una lección
     const video = event.target.innerHTML;
+    this.assets = new Array();
     const widget = event.target as HTMLElement;
     if (this.widgetVideoselected) {
       this.widgetVideoselected.classList.remove('selected');
@@ -136,6 +138,19 @@ export class VideocursosComponent implements OnInit, OnDestroy {
       if (this.currentVideos[id].Titulo === video) {
         this.titulo = this.currentLenguaje + ' - ' + video;
         this.currentVideo = 'Cursos y Videos/' + this.currentLenguaje + '/' + this.currentCurso + '/' + this.currentVideos[id].path;
+
+        this.assets = this.currentVideos[id]['assets'] || new Array(); // FIXME: cambiar path por getDownloadURL
+        for (const asset of this.assets) {
+          const path = 'Cursos y Videos/' + this.currentLenguaje + '/' + this.currentCurso + '/' + asset.path;
+          const ref = this.filesService.getStorageDirectoryReference(path);
+          ref.getDownloadURL()
+            .then(success => {
+              // console.log(success);
+              asset.path = success;
+              })
+            .catch(err => console.log('ERROR getDocumentLesson:', err));
+        }
+
         this.getDocumentVideo();
         break;
       }

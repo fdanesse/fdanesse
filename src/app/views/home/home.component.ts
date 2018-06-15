@@ -1,6 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnDestroy {
+export class HomeComponent implements OnDestroy, OnInit {
 
   private userloggedSubscription: Subscription;
   public userlogged;
@@ -35,5 +35,8 @@ export class HomeComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.userloggedSubscription.unsubscribe();
+  }
+
+  ngOnInit() {
   }
 }

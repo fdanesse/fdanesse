@@ -65,20 +65,25 @@ nav {
   display: block;
   color: white;
   background-color: black;
-  margin-top: 3px;
-  padding: 5px;
+  padding: 0 !important;
   display: -webkit-flex !important;
 	display: flex !important;
 	-webkit-flex-direction: column !important;
   flex-direction: column !important;
-	-webkit-justify-content: center !important;
-  justify-content: center !important;
+	-webkit-justify-content: top !important;
+  justify-content: top !important;
 }
 
 video {
-  width: 90%;
+  width: 94%;
+  padding: 0 !important;
   margin: auto;
-  margin-top: 0 !important;
+  margin-top: 0px !important;
+  margin-bottom: 10px !important;
+}
+
+ul {
+  margin: 10px;
 }
 
 @keyframes fade {

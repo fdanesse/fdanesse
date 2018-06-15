@@ -16,7 +16,12 @@
 
     <div class='col-md-9 animated bounceInRight' id="lessonContainer">
       <video video autobuffer controls='true' *ngIf='videoURL'
-        type="video/webm" autoplay='true' src={{videoURL}}></video>
+        type="video/webm" autoplay='true' src={{videoURL}}>
+      </video>
+      <ul *ngIf='assets.length > 0 && assets != undefined'>
+        <h6>Assets:</h6>
+        <li *ngFor='let item of assets'><a href="{{item.path}}" target='_blank'>{{item.Titulo}}</a></li>
+      </ul>
     </div>
   </div>
 
