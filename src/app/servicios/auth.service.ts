@@ -30,9 +30,9 @@ export class AuthService implements OnDestroy {
     this.__obs = this.obs()
       .subscribe(user => {
         if (user) {
-          console.log('FIXME: Si el usuario no está registrado, registrarlo');
           const u = this.convertDataAuth(user);
           this.changeUser(u);
+          // console.log('FIXME: Si el usuario no está registrado, registrarlo');
           // FIXME: this.fileService.saveUser(u);
         }else {
           this.changeUser(null);
