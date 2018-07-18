@@ -39,10 +39,11 @@ nav {
   padding: 10px;
   background-color: black;
 }
-/*
+
 #navbarLenguajes {
+  padding-right: 100px;
 }
-*/
+
 #navbarTemas {
   display: -webkit-flex !important;
 	display: flex !important;

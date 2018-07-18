@@ -40,6 +40,10 @@ nav {
   background-color: black;
 }
 
+#navbarLenguajes {
+  padding-right: 100px;
+}
+
 #navbarTemas, #navbarVideos {
   display: block;
   display: -webkit-flex !important;
