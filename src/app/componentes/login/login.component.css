@@ -1,0 +1,101 @@
+/* estructura del Widget de login */
+.card {
+  display: inline-block;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  border: 0.08em solid white;
+}
+
+.card-header {
+  background-color: #3E2723;
+  color: white;
+}
+
+.card-body {
+  padding: 10px;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-flex-direction: column !important;
+  flex-direction: column !important;
+  background-color: rgba(141, 110, 99, 0.5);
+}
+
+/* Boton close */
+span {
+  margin-top: 5px;
+  margin-right: 8px;
+}
+.fa-window-close {
+  background-color: #3E2723;
+  color: #D7CCC8;
+}
+.fa-window-close:hover {
+  color: white;
+}
+
+/* botones de login */
+button{
+  color: #fff;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 5px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+}
+
+.btn-google{
+  background: #795548;
+}
+.btn-google:hover{
+  background: #d62d20;
+}
+
+.btn-facebook{
+  background: #795548;
+}
+.btn-facebook:hover{
+  background: #3b5998;
+}
+
+.btn-twitter{
+  background: #795548;
+}
+.btn-twitter:hover{
+  background: #0084b4;
+}
+
+/*
+https://material.io/guidelines/style/color.html#color-color-palette
+*/
+
+/*
+google
+#008744	(0,135,68)
+#0057e7	(0,87,231)
+#d62d20	(214,45,32)
+#ffa700	(255,167,0)
+*/
+/*
+facebook
+#3b5998	(59,89,152)
+#8b9dc3	(139,157,195)
+#dfe3ee	(223,227,238)
+#f7f7f7	(247,247,247)
+*/
+/*
+Twitter Dark Blue
+Hex: #0084b4
+RGB: 0, 132, 180
+182-twitter-blue	Twitter Logo Blue
+Hex: #00aced
+RGB: 0, 172, 237
+292-twitter-verified-blue	Twitter Verified Blue
+Hex: #1dcaff
+RGB: 29, 202, 255
+292-twitter-background-blue	Twitter Background Blue
+Hex: #c0deed
+RGB: 192, 222, 237
+*/

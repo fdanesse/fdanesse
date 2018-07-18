@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,9 +32,11 @@ import { AuthService } from './servicios/auth.service';
 
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     HomeComponent,
     CurriculumComponent,
     PortafoliosComponent,
