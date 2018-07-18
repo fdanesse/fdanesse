@@ -9,7 +9,7 @@ import { Fduser } from '../modelos/fduser';
 
 /*
   userlogged es el usuario logueado
-  roots los uid de los usuarios en users/roots/rootsId[]
+  lectores los uid de los usuarios en users/lectores/lectoresId[]
   Este guard solo deja pasar a usuarios root
 */
 
@@ -19,10 +19,10 @@ import { Fduser } from '../modelos/fduser';
 export class AuthGuard implements CanActivate, OnDestroy {
 
   private userloggedSubscription: Subscription;
-  private userlogged;
+  private userlogged: Fduser;
 
-  private rootsSubscription: Subscription;
-  private roots = new Array();
+  private lectoresSubscription: Subscription;
+  private lectores = new Array();
 
   constructor(
     private router: Router,
@@ -35,17 +35,16 @@ export class AuthGuard implements CanActivate, OnDestroy {
       this.userlogged = Object.assign({}, user); // user puede ser null
     });
 
-    // Observando los usuarios roots registrados
-    this.rootsSubscription = this.filesService.getDocument('users', 'roots').
-      subscribe(data => {
-        this.roots = new Array();
-        for (const user in data['rootsId']) {
-          if (user) {
-            this.roots.push(data['rootsId'][user]);
+    this.lectoresSubscription = this.filesService.getCollection('lectores').
+      subscribe(docs => {
+        if (docs) {
+          this.lectores = new Array();
+          for (const doc of docs) {
+            this.lectores.push(doc['email']);
           }
         }
-      });
-    }
+    });
+  }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -57,7 +56,8 @@ export class AuthGuard implements CanActivate, OnDestroy {
             window.alert('No tienes permisos para acceder a esta dirección.');
             this.router.navigate(['/home']);
           }else {
-            if (this.roots.includes(this.userlogged.uid)) {
+            if (this.lectores.includes(this.userlogged.email)) {
+              console.log('AUTH', this.lectores.includes(this.userlogged.email).toString());
               return true;
             }else {
               window.alert('No tienes permisos para acceder a esta dirección.');
@@ -68,7 +68,7 @@ export class AuthGuard implements CanActivate, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.rootsSubscription.unsubscribe();
+    this.lectoresSubscription.unsubscribe();
     this.userloggedSubscription.unsubscribe();
   }
 

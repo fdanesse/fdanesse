@@ -34,11 +34,14 @@ export class FilesService {
     return document.valueChanges();
   }
 
+    /*
+    FIXME: Save User
   saveUser(user: Fduser) {
     // coleccion.add({title: cont, title: cont ...}) id automático
-    const collection$ = this.db.collection('users');
-    collection$.doc(user.uid).set( (Object.assign({}, user)) )
+    const collection$ = this.db.collection('registrados');
+    collection$.doc(user.email).set( (Object.assign({}, user)) )
       .then(success => console.log('SAVE', success))
       .catch(err => console.log('ERROR en saveUser', err));
   }
+  */
 }

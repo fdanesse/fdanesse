@@ -33,7 +33,7 @@ export class AuthService implements OnDestroy {
           console.log('FIXME: Si el usuario no está registrado, registrarlo');
           const u = this.convertDataAuth(user);
           this.changeUser(u);
-          this.fileService.saveUser(u);
+          // FIXME: this.fileService.saveUser(u);
         }else {
           this.changeUser(null);
         }
@@ -62,6 +62,8 @@ export class AuthService implements OnDestroy {
   }
 
   login(provider: string) {
+    // https://firebase.google.com/docs/auth/web/auth-state-persistence?authuser=0
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
     switch (provider) {
       case 'google': {
         return this.afAuth.auth.signInWithPopup(
