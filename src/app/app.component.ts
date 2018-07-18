@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit} from '@angular/core';
 import { AuthService } from './servicios/auth.service';
 import { Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
+import { FilesService } from './servicios/files.service';
 
 // NOTA: El cuadro de dialogo id="login" contiene botones para autenticación con google, twitter y facebook.
 // Se activa cuando el usuario hace click en el botón login de id='loginbox'
@@ -17,8 +18,9 @@ export class AppComponent implements OnDestroy, OnInit {
   public loginActive = false;
   private userloggedSubscription: Subscription;
   public userlogged = Object.assign({}, null);
+  public userdataSubscription: Subscription;
 
-  constructor(public authService: AuthService, public router: Router) {}
+  constructor(public authService: AuthService, public router: Router, public fileService: FilesService) {}
 
   ngOnInit() {
     this.listenLogin();
@@ -26,11 +28,34 @@ export class AppComponent implements OnDestroy, OnInit {
 
   listenLogin() {
     this.userloggedSubscription = this.authService.obsLogged.subscribe(user => {
-      this.userlogged = Object.assign({}, user);
-      /* FIXME: Si el usuario está en la base de datos, no hacemos nada
-      Si no está en la base, vamos al perfil de usuarios */
-      // if (this.userlogged && this.userlogged.uid) {}
+      if (user) {
+        this.userlogged = Object.assign({}, user);
+      }else {
+        this.userlogged = Object.assign({}, null);
+      }
+      this.listenUserData(this.userlogged['email']);
     });
+  }
+
+  listenUserData(email: string) {
+    if (this.userdataSubscription) {
+      this.userdataSubscription.unsubscribe();
+    }
+    if (email !== undefined) {
+      this.userdataSubscription = this.fileService.getDocument('registrados', email)
+        .subscribe( action => {
+          if (action['email'] === email) {
+            this.welcome(email);
+          }else {
+            this.router.navigate(['/perfil']);
+          }
+      });
+    }
+  }
+
+  welcome(email: string) {
+    // FIXME: presentar mensaje de bienvenida
+    console.log('Welcome:', email);
   }
 
   toggleLoginActive() {
@@ -50,6 +75,11 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    this.userloggedSubscription.unsubscribe();
+    if (this.userloggedSubscription) {
+      this.userloggedSubscription.unsubscribe();
+    }
+    if (this.userdataSubscription) {
+      this.userdataSubscription.unsubscribe();
+    }
   }
 }

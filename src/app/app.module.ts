@@ -31,6 +31,7 @@ import { AuthGuard } from './guardianes/auth.guard';
 import { AuthService } from './servicios/auth.service';
 
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { UserperfilComponent } from './views/userperfil/userperfil.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
     JamediaRadioComponent,
     GuiasComponent,
     VideocursosComponent,
+    UserperfilComponent,
   ],
   imports: [
     BrowserModule,
