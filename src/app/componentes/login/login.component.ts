@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
     this.close();
     this.authService.login(provider)
       .then( (user) => {
-        // console.log('LOGIN:', user.user.uid);
+        // console.log('LoginComponent LOGIN:', user.user.uid); // FIXME: Perfil
       })
       .catch( (err) => {
         alert('No fue posible Autenticarse');
-        console.log('AUTH ERROR:', err);
+        console.log('LoginComponent AUTH ERROR:', err);
       });
     }
 

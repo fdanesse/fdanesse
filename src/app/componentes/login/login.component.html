@@ -6,9 +6,9 @@
   <div class="card-body">
   <button class="btn btn-lg btn-google" (click)="onLogin('google')">
     <i class="fa fa-google-plus" aria-hidden="true"> Google</i></button>
-  <button class="btn btn-lg btn-facebook" (click)="onLogin('facebook')">
+  <button class="btn btn-lg btn-facebook" (click)="onLogin('facebook')" [disabled]=true>
     <i class="fa fa-facebook" aria-hidden="true"> Facebook</i></button>
-  <button class="btn btn-lg btn-twitter" (click)="onLogin('twitter')">
+  <button class="btn btn-lg btn-twitter" (click)="onLogin('twitter')" [disabled]=true>
     <i class="fa fa-twitter" aria-hidden="true"> Twitter</i></button>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <app-login id="login" (closeEvent)='toggleLoginActive()'></app-login>
 <div id='loginbox'>
-  <button class='buttonlogin' (click)="toggleLoginActive()">Log-in</button> <!-- (click)="onLogin('google')" *ngIf='!userlogged.providerId' -->
-  <button class='buttonlogin' (click)="logout()">Log-out</button> <!--  *ngIf='userlogged.providerId' -->
+  <button class='buttonlogin' (click)="toggleLoginActive()" *ngIf='!userlogged.providerId'>Log-in</button>
+  <button class='buttonlogin' (click)="logout()" *ngIf='userlogged.providerId'>Log-out</button>
 </div>
 <!--<pre>{{ userlogged | json }}</pre>-->
 <router-outlet></router-outlet>
