@@ -15,14 +15,14 @@ app-welcome {
   right: 30px;
   width: 34px;
   height: 34px;
-  border: 0.15em #795548 solid;
+  border: 0.15em rgb(102, 59, 42) solid;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
   transition: width 0.5s, height 0.5s, border-color 0.5s;
 }
 .rounded-circle:hover{
   width: 40px;
   height: 40px;
-  border-color: red;
+  border-color: cyan;
 }
 
 /* Botones para login */
@@ -36,18 +36,23 @@ app-welcome {
 }
 .buttonlogin {
   margin: 5px;
-  background-color: rgba(255,255,255, 0.4);
-  color: #795548;
-  border: 0.1em rgba(0,0,255, 0.2) solid;
+  background-color: rgba(102, 59, 42, 0.2);
+  color: rgba(102, 59, 42, 1);
+  border: 0.1em rgba(0,255,255, 0.2) solid;
   border-radius: 8%;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
   transition: color 0.3s;
-  animation-name: playing_anim;
+  animation-name: alert_anim;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
 .buttonlogin:hover {
-  color:red;
+  color:cyan;
+  background-color: rgba(102, 59, 42, 0.8);
+  box-shadow: 0.08em 0.08em 0.08em cyan,
+    -0.08em -0.08em 0.08em cyan,
+    0.08em -0.08em 0.08em cyan,
+    -0.08em 0.08em 0.08em cyan;
   cursor: pointer;
   animation: none;
 }
@@ -134,14 +139,23 @@ app-login {
   }
 }
 
-@keyframes playing_anim {
+@keyframes alert_anim {
   0% {
-    color: #795548;
+    color: rgba(102, 59, 42, 1);
+    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+    background-color: rgba(102, 59, 42, 0.2);
   }
   50% {
-    color: red;
+    color: cyan;
+    background-color: rgba(102, 59, 42, 0.8);
+    box-shadow: 0.08em 0.08em 0.08em cyan,
+      -0.08em -0.08em 0.08em cyan,
+      0.08em -0.08em 0.08em cyan,
+      -0.08em 0.08em 0.08em cyan;
   }
   100% {
-    color: #795548;
+    color: rgba(102, 59, 42, 1);
+    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+    background-color: rgba(102, 59, 42, 0.2);
   }
 }

@@ -3,7 +3,6 @@ import { AuthService } from './servicios/auth.service';
 import { Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import { FilesService } from './servicios/files.service';
-import { timeout } from 'q';
 
 // NOTA: El cuadro de dialogo id="login" contiene botones para autenticación con google, twitter y facebook.
 // Se activa cuando el usuario hace click en el botón login de id='loginbox'
@@ -19,13 +18,19 @@ export class AppComponent implements OnDestroy, OnInit {
   public loginActive = false;
   private userloggedSubscription: Subscription;
   public userlogged = Object.assign({}, null);
-  public userdataSubscription: Subscription;
-  public bienvenida = false;
+  private userdataSubscription: Subscription;
+  private bienvenida = false;
+  public tipo = false;
 
   constructor(public authService: AuthService, public router: Router, public fileService: FilesService) {}
 
   ngOnInit() {
+    // FIXME: ejemplo api route: https://angular.io/guide/router#activated-route
     this.listenLogin();
+  }
+
+  onComponentChange(component) {
+    this.tipo = !Boolean(component['tipo']);
   }
 
   listenLogin() {
@@ -47,7 +52,7 @@ export class AppComponent implements OnDestroy, OnInit {
       this.userdataSubscription = this.fileService.getDocument('registrados', email)
         .subscribe( action => {
           if (action['email'] === email) {
-            this.welcome(email);
+            this.welcome();
           }else {
             this.router.navigate(['/perfil']);
           }
@@ -55,7 +60,7 @@ export class AppComponent implements OnDestroy, OnInit {
     }
   }
 
-  welcome(email: string) {
+  welcome() {
     this.bienvenida = !this.bienvenida;
     const wel = document.getElementById('welcome');
     if (this.bienvenida) {

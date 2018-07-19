@@ -20,6 +20,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotfoundComponent implements OnInit {
 
+  public tipo = 'publico';
+
   constructor() { }
 
   ngOnInit() {

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortafoliosComponent implements OnInit {
 
+  public tipo = 'publico';
+
   constructor() { }
 
   ngOnInit() {

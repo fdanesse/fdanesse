@@ -81,9 +81,28 @@ nav {
   -moz-animation: fade 1s;
 }
 
-h6 {
+#lessonContainer h6, #lessonContainer a {
+  color: blue !important;
   text-align: center;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#lessonContainer h6:hover, #lessonContainer a:hover {
+  color:red !important;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+h3 {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+button {
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 h3, h1, span {

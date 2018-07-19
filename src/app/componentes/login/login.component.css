@@ -49,25 +49,25 @@ button{
 }
 
 .btn-google{
-  background: #795548;
+  background: rgba(102, 59, 42, 1);
 }
-.btn-google:hover{
+.btn-google:hover:enabled {
   background: #d62d20;
   cursor: pointer;
 }
 
 .btn-facebook{
-  background: #795548;
+  background: rgba(102, 59, 42, 1);
 }
-.btn-facebook:hover{
+.btn-facebook:hover:enabled {
   background: #3b5998;
   cursor: pointer;
 }
 
 .btn-twitter{
-  background: #795548;
+  background: rgba(102, 59, 42, 1);
 }
-.btn-twitter:hover{
+.btn-twitter:hover:enabled {
   background: #0084b4;
   cursor: pointer;
 }

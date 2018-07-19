@@ -22,6 +22,11 @@
   text-shadow: 0.025em 0.025em 0.025em white !important;
 }
 
+.column {
+  background-color: rgba(102, 59, 42, 0.2);
+  padding: 5px;
+}
+
 h1 {font-size: 1em;}
 h3 {font-size: 0.5em;}
 h1, h3 {margin-top: 0 !important;}

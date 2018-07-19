@@ -1,13 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
 // pdf-viewer read local file: https://github.com/VadimDez/ng2-pdf-viewer#render-local-pdf-file
 // pdf-viewer search in the pdf: https://github.com/VadimDez/ng2-pdf-viewer#search-in-the-pdf
 // FIXME: Agregar opciones de busqueda
-import { PdfViewerModule, PDFProgressData } from 'ng2-pdf-viewer';
+import { PDFProgressData } from 'ng2-pdf-viewer'; // PdfViewerModule
 import { FilesService } from '../../servicios/files.service';
 
 // resalte de codigo: https://github.com/mattlewis92/angular-highlight-js#installation
+
+// FIXME: implementar alguna forma de acceder a una página en particular.
 
 
 @Component({

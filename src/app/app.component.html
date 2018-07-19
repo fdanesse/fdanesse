@@ -1,10 +1,10 @@
 <app-login id="login" (closeEvent)='toggleLoginActive()'></app-login>
-<div id='loginbox'>
+<div id='loginbox' *ngIf='tipo'>
   <button class='buttonlogin animated bounceInDown' (click)="toggleLoginActive()" *ngIf='!userlogged.providerId'>Log-in</button>
   <button class='buttonlogin animated bounceInDown' (click)="logout()" *ngIf='userlogged.providerId'>Log-out</button>
 </div>
-<app-welcome id="welcome" (closeEvent)='welcome(userlogged.email)' [user]=userlogged></app-welcome>
+<app-welcome id="welcome" (closeEvent)='welcome()' [user]=userlogged></app-welcome>
 
-<a *ngIf='userlogged.photoURL' routerLink='/perfil'><img class="rounded-circle animated bounceInDown" src="{{userlogged.photoURL}}" data-toggle="tooltip" data-placement="top" title="Editar Perfil"></a>
+<a *ngIf='userlogged.photoURL && tipo' routerLink='/perfil'><img class="rounded-circle animated bounceInDown" src="{{userlogged.photoURL}}" data-toggle="tooltip" data-placement="top" title="Editar Perfil"></a>
 <!--<pre>{{ userlogged | json }}</pre>-->
-<router-outlet></router-outlet>
+<router-outlet (activate)="onComponentChange($event)"></router-outlet>
