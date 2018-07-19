@@ -1,3 +1,11 @@
+app-welcome {
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 100;
+}
 
 .rounded-circle{
   position: absolute;
@@ -5,15 +13,16 @@
   z-index: 2;
   top: 50px;
   right: 30px;
-  width: 32px;
-  height: 32px;
-  border: 0.2em white solid;
+  width: 34px;
+  height: 34px;
+  border: 0.15em #795548 solid;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
-  transition: width 0.5s, height 0.5s;
+  transition: width 0.5s, height 0.5s, border-color 0.5s;
 }
 .rounded-circle:hover{
   width: 40px;
   height: 40px;
+  border-color: red;
 }
 
 /* Botones para login */
@@ -27,15 +36,20 @@
 }
 .buttonlogin {
   margin: 5px;
-  background-color: transparent;
-  color: #E0FFFF;
-  border: none;
-  text-shadow: 0.025em 0.025em 0.025em black !important;
+  background-color: rgba(255,255,255, 0.4);
+  color: #795548;
+  border: 0.1em rgba(0,0,255, 0.2) solid;
+  border-radius: 8%;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  transition: color 0.3s;
+  animation-name: playing_anim;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 .buttonlogin:hover {
-  color:cyan !important;
-  text-shadow: 0.025em 0.025em 0.025em black !important;
+  color:red;
   cursor: pointer;
+  animation: none;
 }
 
 /* widget para login */
@@ -117,5 +131,17 @@ app-login {
     top: -50%;
     opacity: 0.0;
     display: none;
+  }
+}
+
+@keyframes playing_anim {
+  0% {
+    color: #795548;
+  }
+  50% {
+    color: red;
+  }
+  100% {
+    color: #795548;
   }
 }

@@ -1,0 +1,48 @@
+.card {
+  display: inline-block;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.9);
+  background-color: transparent;
+  border: 0.1em solid white;
+}
+
+.card-header {
+  background-color: black;
+  color: white;
+}
+
+.card-body {
+  padding: 10px;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-flex-direction: column !important;
+  flex-direction: column !important;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Boton close */
+span {
+  margin-top: 5px;
+  margin-right: 8px;
+}
+.fa-window-close {
+  background-color: #3E2723;
+  color: #D7CCC8;
+}
+.fa-window-close:hover {
+  color: white;
+  cursor: pointer;
+}
+
+h5 {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.rounded-circle {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 5px;
+  border: 0.1em solid black;
+}

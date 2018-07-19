@@ -1,13 +1,13 @@
 /* estructura del Widget de login */
 .card {
   display: inline-block;
-  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.9);
   background-color: transparent;
-  border: 0.08em solid white;
+  border: 0.1em solid white;
 }
 
 .card-header {
-  background-color: #3E2723;
+  background-color: black;
   color: white;
 }
 
@@ -17,7 +17,7 @@
   display: flex !important;
   -webkit-flex-direction: column !important;
   flex-direction: column !important;
-  background-color: rgba(141, 110, 99, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Boton close */
@@ -31,6 +31,7 @@ span {
 }
 .fa-window-close:hover {
   color: white;
+  cursor: pointer;
 }
 
 /* botones de login */
@@ -44,6 +45,7 @@ button{
   cursor: pointer;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
   background-color: transparent;
+  transition: background-color 0.5s ease;
 }
 
 .btn-google{
@@ -51,6 +53,7 @@ button{
 }
 .btn-google:hover{
   background: #d62d20;
+  cursor: pointer;
 }
 
 .btn-facebook{
@@ -58,6 +61,7 @@ button{
 }
 .btn-facebook:hover{
   background: #3b5998;
+  cursor: pointer;
 }
 
 .btn-twitter{
@@ -65,6 +69,7 @@ button{
 }
 .btn-twitter:hover{
   background: #0084b4;
+  cursor: pointer;
 }
 
 /*

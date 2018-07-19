@@ -3,6 +3,7 @@ import { AuthService } from './servicios/auth.service';
 import { Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import { FilesService } from './servicios/files.service';
+import { timeout } from 'q';
 
 // NOTA: El cuadro de dialogo id="login" contiene botones para autenticación con google, twitter y facebook.
 // Se activa cuando el usuario hace click en el botón login de id='loginbox'
@@ -19,6 +20,7 @@ export class AppComponent implements OnDestroy, OnInit {
   private userloggedSubscription: Subscription;
   public userlogged = Object.assign({}, null);
   public userdataSubscription: Subscription;
+  public bienvenida = false;
 
   constructor(public authService: AuthService, public router: Router, public fileService: FilesService) {}
 
@@ -54,8 +56,18 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   welcome(email: string) {
-    // FIXME: presentar mensaje de bienvenida
-    console.log('Welcome:', email);
+    this.bienvenida = !this.bienvenida;
+    const wel = document.getElementById('welcome');
+    if (this.bienvenida) {
+      wel.style.animation = 'in 0.6s both';
+      setTimeout( function() {
+        const w = document.getElementById('welcome');
+        w.style.animation = 'out 0.6s both';
+        return false;
+      }, 3000);
+    } else {
+      wel.style.animation = 'out 0.6s both';
+    }
   }
 
   toggleLoginActive() {

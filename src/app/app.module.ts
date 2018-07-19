@@ -32,6 +32,7 @@ import { AuthService } from './servicios/auth.service';
 
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { UserperfilComponent } from './views/userperfil/userperfil.component';
+import { WelcomeComponent } from './componentes/welcome/welcome.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { UserperfilComponent } from './views/userperfil/userperfil.component';
     GuiasComponent,
     VideocursosComponent,
     UserperfilComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
