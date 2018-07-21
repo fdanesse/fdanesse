@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs'; // pipe
-import { map, take, tap } from 'rxjs/operators';
+// import { map, take, tap } from 'rxjs/operators';
 
 import { AuthService } from '../servicios/auth.service';
 import { FilesService } from '../servicios/files.service';
@@ -48,6 +48,13 @@ export class LectorsGuard implements CanActivate, OnDestroy {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+      const ret = this.lectores.includes(this.userlogged.email); // FIXME: asegurar que esté registrado
+      if (!ret) {
+        window.alert('Debes estar registrado como lector para acceder a esta dirección.');
+        this.router.navigate(['/home']);
+      }
+      return ret;
+      /*
       return this.authService.afAuth.authState
         .pipe(
           take(1), map(authState => !! authState), tap(authenticated => {
@@ -56,7 +63,6 @@ export class LectorsGuard implements CanActivate, OnDestroy {
             this.router.navigate(['/home']);
           }else {
             if (this.lectores.includes(this.userlogged.email)) { // FIXME: asegurar que esté registrado
-              console.log('AUTH', this.lectores.includes(this.userlogged.email).toString());
               return true;
             }else {
               window.alert('Debes estar registrado como lector para acceder a esta dirección.');
@@ -64,6 +70,7 @@ export class LectorsGuard implements CanActivate, OnDestroy {
             }
           }
         }));
+    */
   }
 
   ngOnDestroy() {
