@@ -12,21 +12,22 @@ import { JamediaRadioComponent } from './views/portafolios/jamedia/jamedia-radio
 import { GuiasComponent } from './views/guias/guias.component';
 import { VideocursosComponent } from './views/videocursos/videocursos.component';
 import { AuthGuard } from './guardianes/auth.guard';
+import { LectorsGuard } from './guardianes/lectors.guard';
 
 
 const routes: Routes = [
   // https://www.youtube.com/watch?v=pcOaAU_iaD4&index=3&list=PL6n9fhu94yhXwcl3a6rIfAI7QmGYIkfK5
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // component: HomeComponent
   { path: 'home', component: HomeComponent },
-  { path: 'perfil', component: UserperfilComponent }, // FIXME: Implementar un guardian
+  { path: 'perfil', component: UserperfilComponent, canActivate: [AuthGuard] },
   { path: 'curriculum', component: CurriculumComponent },
   { path: 'portafolios', component: PortafoliosComponent },
   { path: 'jamedia', component: JamediaComponent },
   { path: 'jamedia_python', component: JamediaPythonComponent },
   { path: 'jamedia_vala', component: JamediaValaComponent },
   { path: 'jamedia_radio', component: JamediaRadioComponent },
-  { path: 'guias', component: GuiasComponent, canActivate: [AuthGuard] },
-  { path: 'videocursos', component: VideocursosComponent, canActivate: [AuthGuard] },
+  { path: 'guias', component: GuiasComponent, canActivate: [LectorsGuard] },
+  { path: 'videocursos', component: VideocursosComponent, canActivate: [LectorsGuard] },
   { path: '**', component: NotfoundComponent }
 ];
 

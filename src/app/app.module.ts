@@ -30,6 +30,7 @@ import { VideocursosComponent } from './views/videocursos/videocursos.component'
 
 import { AuthGuard } from './guardianes/auth.guard';
 import { AuthService } from './servicios/auth.service';
+import { LectorsGuard } from './guardianes/lectors.guard';
 
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { UserperfilComponent } from './views/userperfil/userperfil.component';
@@ -71,7 +72,7 @@ import { WelcomeComponent } from './componentes/welcome/welcome.component';
     // FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, AuthGuard, AngularFireAuth, FilesService],
+  providers: [AuthService, AuthGuard, AngularFireAuth, FilesService, LectorsGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
