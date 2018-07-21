@@ -68,6 +68,7 @@ export class AppComponent implements OnDestroy, OnInit {
       setTimeout( function() {
         const w = document.getElementById('welcome');
         w.style.animation = 'out 0.6s both';
+        this.bienvenida = false;
         return false;
       }, 3000);
     } else {
@@ -82,6 +83,12 @@ export class AppComponent implements OnDestroy, OnInit {
     const login = document.getElementById('login'); // document.querySelector('login');
     if (this.loginActive) {
       login.style.animation = 'in 0.5s both';
+      setTimeout( function() {
+        const w = document.getElementById('login');
+        w.style.animation = 'out 0.6s both';
+        this.loginActive = false;
+        return false;
+      }, 3000);
     } else {
       login.style.animation = 'out 0.5s both';
     }

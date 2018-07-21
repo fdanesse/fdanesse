@@ -15,12 +15,4 @@ export class Fduser {
     public apellido: (string) = '',
     public telefono: string = '',
   ) {}
-
-  setMoliUser(objeto) {
-    for (const key in objeto) {
-      if (key) {
-        this[key] = objeto[key];
-      }
-    }
-  }
 }

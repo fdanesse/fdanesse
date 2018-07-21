@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../servicios/auth.service';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs'; // Observable
 import { FilesService } from '../../servicios/files.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms'; // Form
+import { Fduser } from '../../modelos/fduser';
 
 // FIXME: Hay cambios en el API en los modelos de formularios que debo revisar: https://angular.io/api/forms/FormControlName#use-with-ngmodel
 
@@ -16,8 +16,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'; // Form
 export class UserperfilComponent implements OnInit, OnDestroy {
 
   private userloggedSubscription: Subscription;
-  public userlogged = Object.assign({}, null);
-  public userdata = Object.assign({}, null);
+  public userlogged = new Fduser();
+  public userdata = new Fduser();
   private userdataSubscription: Subscription;
 
   public perfilForm: FormGroup;
@@ -29,7 +29,7 @@ export class UserperfilComponent implements OnInit, OnDestroy {
   /* Nº de 9 cifras */
   private telefonos_pattern = '^[0-9]{8,9}$';
 
-  constructor(public authService: AuthService, public router: Router, public fileService: FilesService) { }
+  constructor(public authService: AuthService, public fileService: FilesService) { }
 
   ngOnInit() {
     this.settingFormControls();
@@ -66,10 +66,10 @@ export class UserperfilComponent implements OnInit, OnDestroy {
     this.userloggedSubscription = this.authService.obsLogged.subscribe(user => {
       if (user) {
         this.userlogged = Object.assign({}, user);
-        this.userdata = Object.assign({}, user);
+        this.userdata = new Fduser();
       }else {
-        this.userlogged = Object.assign({}, null);
-        this.userdata = Object.assign({}, null);
+        this.userlogged = new Fduser();
+        this.userdata = new Fduser();
       }
       if (this.userlogged['email']) {
         this.listenUserData(this.userlogged['email']);
@@ -90,7 +90,7 @@ export class UserperfilComponent implements OnInit, OnDestroy {
         }
         for (const prop in this.userdata) {
           if (prop) {
-            this.perfilForm.get(prop).setValue(this.userdata[prop]);
+            this.perfilForm.get(prop).setValue(this.userlogged[prop] || this.userdata[prop]);
           }
         }
     });
@@ -99,13 +99,11 @@ export class UserperfilComponent implements OnInit, OnDestroy {
   save() {
     if (this.perfilForm.valid) {
       this.fileService.saveUser(this.perfilForm.value);
-      this.router.navigate(['/home']);
     }
   }
 
   delete() {
     this.fileService.deleteUser(this.userlogged.email);
-    this.router.navigate(['/home']);
   }
 
   ngOnDestroy() {

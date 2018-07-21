@@ -5,7 +5,6 @@ import * as firebase from 'firebase/app';
 // import { map, take, tap } from 'rxjs/operators';
 
 import { Fduser } from '../modelos/fduser';
-// import { FilesService } from '../servicios/files.service';
 
 // NOTA: Toda la autenticación se hace aquí.
 // Debes escuchar userLogged que representa al usuario autenticado y logueado: this.authService.obsLogged.subscribe ...
@@ -22,15 +21,13 @@ export class AuthService implements OnDestroy {
 
   private __obs: Subscription;
 
-  constructor(public afAuth: AngularFireAuth) { // , private fileService: FilesService)
+  constructor(public afAuth: AngularFireAuth) {
 
     this.__obs = this.obs()
       .subscribe(user => {
         if (user) {
           const u = this.convertDataAuth(user);
           this.changeUser(u);
-          // console.log('FIXME: Si el usuario no está registrado, registrarlo');
-          // FIXME: this.fileService.saveUser(u);
         }else {
           this.changeUser(null);
         }
@@ -51,9 +48,12 @@ export class AuthService implements OnDestroy {
       const authUser = Object.assign({}, user);
       const { uid, displayName, photoURL, email, emailVerified, phoneNumber } = authUser;
       const providerId = authUser.providerData[0].providerId;
-      usertemp.setMoliUser({
-        uid, displayName, photoURL, email,
-        emailVerified, phoneNumber, providerId });
+      const objeto = {uid, displayName, photoURL, email, emailVerified, phoneNumber, providerId};
+      for (const key in objeto) {
+        if (key) {
+          usertemp[key] = objeto[key];
+        }
+      }
     }
     return usertemp;
   }

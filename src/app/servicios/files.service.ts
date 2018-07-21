@@ -5,7 +5,7 @@ import { AngularFirestore,
   AngularFirestoreDocument } from 'angularfire2/firestore';
 // import { Observable } from 'rxjs';
 // https://angularfirebase.com/lessons/firestore-with-angularfire-basics/
-
+import { Router } from '@angular/router';
 import { Fduser } from '../modelos/fduser';
 
 // NOTA: Servicio para la base de datos y para archivos en storage
@@ -20,7 +20,7 @@ import { Fduser } from '../modelos/fduser';
 })
 export class FilesService {
 
-  constructor(public db: AngularFirestore, private storage: AngularFireStorage) { }
+  constructor(public db: AngularFirestore, private storage: AngularFireStorage, public router: Router) { }
 
   getStorageDirectoryReference(path: string) { // Storage Dirpath Observer. FIXME: analizar
     return this.storage.storage.ref(path);
@@ -48,7 +48,9 @@ export class FilesService {
     if (confirm('¿Eliminar Usuario?')) {
       const collection$ = this.db.collection('registrados');
       collection$.doc(email).delete()
-        .then(success => window.alert('Datos eliminados correctamente.'))
+        .then(success => {
+          window.alert('Datos eliminados correctamente.');
+          this.router.navigate(['/home']); })
         .catch(err => window.alert('Ocurrió un error inesperado.'));
       }
   }

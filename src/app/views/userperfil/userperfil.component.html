@@ -12,7 +12,7 @@
 
       <fieldset class='form-group'>
         <legend class="text-left"><strong> Foto de perfil: </strong></legend>
-        <img class='img-thumbnail rounded mx-auto' [src]='userdata.photoURL'>
+        <img class='img-thumbnail rounded mx-auto' [src]='userlogged.photoURL'>
         <input type='text' hidden readonly formControlName='photoURL'>
         <div class='alert alert-danger'
           *ngIf='perfilForm.controls.photoURL.errors'>
@@ -126,7 +126,7 @@
         class='btn btn-success'>Guardar</button>
       <!--<button type='reset' class='btn btn-warning' (click)='perfilForm.reset()'
         [disabled]='perfilForm.pristine'>Limpiar Formulario</button>-->
-      <button [disabled]='!userdata.uid' type='button' class='btn btn-danger'
+      <button type='button' class='btn btn-danger'
         (click)='delete()'>Eliminar</button>
     </div>
   </form>
