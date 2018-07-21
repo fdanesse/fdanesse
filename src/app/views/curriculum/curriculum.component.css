@@ -29,28 +29,6 @@ h1, h2, h3, h4, h5, h6, p, ul, li {
 	background-color: #e0f7fa;
 }
 
-
-#home_button {
-	float:left;
-	margin: 0.4em;
-	position: absolute;
-	z-index: 1;
-}
-
-.fa {
-  color: white;
-}
-
-.fa-home {
-  color: black;
-}
-
-.fa-home:hover,.fa-linkedin:hover, .fa-youtube-square:hover {
-  cursor: pointer;
-  color: red;
-  text-shadow: 0.025em 0.025em 0.025em black !important;
-}
-
 /*
 .fa-linkedin-square {
 	color: white;

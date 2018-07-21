@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JamediaComponent implements OnInit {
 
-  public tipo = 'publico';
-
   constructor() {}
 
   ngOnInit() {}

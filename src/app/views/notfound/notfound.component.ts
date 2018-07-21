@@ -20,7 +20,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotfoundComponent implements OnInit {
 
-  public tipo = 'publico';
+  public homebutton = true;
 
   constructor() { }
 

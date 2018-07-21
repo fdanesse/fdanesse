@@ -8,7 +8,6 @@ import { Component, OnInit, ViewChildren } from '@angular/core';
 })
 export class JamediaRadioComponent implements OnInit {
 
-  public tipo = 'publico';
   private trackselected = null;
   private audioplayer = null;
   private volumen = 0.05;

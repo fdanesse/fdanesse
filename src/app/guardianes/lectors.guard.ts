@@ -55,7 +55,7 @@ export class LectorsGuard implements CanActivate, OnDestroy {
             window.alert('Debes estar registrado como lector para acceder a esta dirección.');
             this.router.navigate(['/home']);
           }else {
-            if (this.lectores.includes(this.userlogged.email)) {
+            if (this.lectores.includes(this.userlogged.email)) { // FIXME: asegurar que esté registrado
               console.log('AUTH', this.lectores.includes(this.userlogged.email).toString());
               return true;
             }else {

@@ -20,7 +20,8 @@ export class AppComponent implements OnDestroy, OnInit {
   public userlogged = Object.assign({}, null);
   private userdataSubscription: Subscription;
   private bienvenida = false;
-  public tipo = false;
+  public perfilbutton = true; // Si el componente activo es publico no requiere los widget de login
+  public homebutton = true; // Si el componente activo requiere el boton home
 
   constructor(public authService: AuthService, public router: Router, public fileService: FilesService) {}
 
@@ -30,7 +31,8 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   onComponentChange(component) {
-    this.tipo = !Boolean(component['tipo']);
+    this.perfilbutton = Boolean(component['perfilbutton']);
+    this.homebutton = Boolean(component['homebutton']);
   }
 
   listenLogin() {

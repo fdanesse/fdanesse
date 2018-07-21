@@ -15,6 +15,9 @@ import { Fduser } from '../../modelos/fduser';
 })
 export class UserperfilComponent implements OnInit, OnDestroy {
 
+  public perfilbutton = true;
+  public homebutton = true;
+
   private userloggedSubscription: Subscription;
   public userlogged = new Fduser();
   public userdata = new Fduser();

@@ -7,6 +7,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnDestroy, OnInit {
 
+  public perfilbutton = true;
+
   constructor() {}
 
   ngOnDestroy() {}
