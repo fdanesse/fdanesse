@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.close();
     this.authService.login(provider)
       .then( (user) => {
-        // console.log('LoginComponent LOGIN:', user.user.uid); // FIXME: Perfil
+        // console.log('LoginComponent LOGIN:', user.uid);
       })
       .catch( (err) => {
         alert('No fue posible Autenticarse');

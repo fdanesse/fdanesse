@@ -40,8 +40,16 @@ export class FilesService {
   saveUser(user: Fduser) { // Ejemplo add: coleccion.add({title: cont, title: cont ...}) id automático
     const collection$ = this.db.collection('registrados');
     collection$.doc(user.email).set( (Object.assign({}, user)) )
-      .then(success => console.log('SAVE', user))
-      .catch(err => console.log('ERROR en saveUser', err));
+      .then(success => window.alert('Datos almacenados correctamente.'))
+      .catch(err => window.alert('Ocurrió un error inesperado.'));
   }
 
+  deleteUser(email: string) {
+    if (confirm('¿Eliminar Usuario?')) {
+      const collection$ = this.db.collection('registrados');
+      collection$.doc(email).delete()
+        .then(success => window.alert('Datos eliminados correctamente.'))
+        .catch(err => window.alert('Ocurrió un error inesperado.'));
+      }
+  }
 }

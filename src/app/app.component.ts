@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit} from '@angular/core';
 import { AuthService } from './servicios/auth.service';
 import { Router } from '@angular/router';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs'; // Observable
 import { FilesService } from './servicios/files.service';
 
 // NOTA: El cuadro de dialogo id="login" contiene botones para autenticación con google, twitter y facebook.
@@ -50,8 +50,8 @@ export class AppComponent implements OnDestroy, OnInit {
     }
     if (email !== undefined) {
       this.userdataSubscription = this.fileService.getDocument('registrados', email)
-        .subscribe( action => {
-          if (action['email'] === email) {
+        .subscribe( user => {
+          if (user) { // user['email'] === email
             this.welcome();
           }else {
             this.router.navigate(['/perfil']);

@@ -15,14 +15,14 @@ app-welcome {
   right: 30px;
   width: 34px;
   height: 34px;
-  border: 0.15em rgb(102, 59, 42) solid;
+  border: 0.15em white solid;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
   transition: width 0.5s, height 0.5s, border-color 0.5s;
 }
 .rounded-circle:hover{
   width: 40px;
   height: 40px;
-  border-color: cyan;
+  border: none;
 }
 
 /* Botones para login */
@@ -36,23 +36,23 @@ app-welcome {
 }
 .buttonlogin {
   margin: 5px;
-  background-color: rgba(102, 59, 42, 0.2);
-  color: rgba(102, 59, 42, 1);
-  border: 0.1em rgba(0,255,255, 0.2) solid;
-  border-radius: 8%;
+  color: white;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  background-color: rgba(255,255,255, 0.2);
+  border: 0.1em rgba(255,255,255, 0.2) solid;
+  border-radius: 8%;
   transition: color 0.3s;
   animation-name: alert_anim;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
 .buttonlogin:hover {
-  color:cyan;
-  background-color: rgba(102, 59, 42, 0.8);
-  box-shadow: 0.08em 0.08em 0.08em cyan,
-    -0.08em -0.08em 0.08em cyan,
-    0.08em -0.08em 0.08em cyan,
-    -0.08em 0.08em 0.08em cyan;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0.08em 0.08em 0.08em rgba(255, 255, 255, 0.8),
+    -0.08em -0.08em 0.08em rgba(255, 255, 255, 0.8),
+    0.08em -0.08em 0.08em rgba(255, 255, 255, 0.8),
+    -0.08em 0.08em 0.08em rgba(255, 255, 255, 0.8);
   cursor: pointer;
   animation: none;
 }
@@ -141,21 +141,21 @@ app-login {
 
 @keyframes alert_anim {
   0% {
-    color: rgba(102, 59, 42, 1);
+    color: white;
     box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
-    background-color: rgba(102, 59, 42, 0.2);
+    background-color: rgba(255,255,255, 0.2);
   }
   50% {
-    color: cyan;
-    background-color: rgba(102, 59, 42, 0.8);
-    box-shadow: 0.08em 0.08em 0.08em cyan,
-      -0.08em -0.08em 0.08em cyan,
-      0.08em -0.08em 0.08em cyan,
-      -0.08em 0.08em 0.08em cyan;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0.08em 0.08em 0.08em rgba(255, 255, 255, 0.8),
+      -0.08em -0.08em 0.08em rgba(255, 255, 255, 0.8),
+      0.08em -0.08em 0.08em rgba(255, 255, 255, 0.8),
+      -0.08em 0.08em 0.08em rgba(255, 255, 255, 0.8);
   }
   100% {
-    color: rgba(102, 59, 42, 1);
+    color: white;
     box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
-    background-color: rgba(102, 59, 42, 0.2);
+    background-color: rgba(255,255,255, 0.2);
   }
 }

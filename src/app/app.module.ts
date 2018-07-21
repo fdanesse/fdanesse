@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms'; // FormsModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -65,7 +66,10 @@ import { WelcomeComponent } from './componentes/welcome/welcome.component';
     AngularFireStorageModule,
     AngularFirestoreModule, // https://angularfirebase.com/lessons/firestore-with-angularfire-basics/
 
-    PdfViewerModule
+    PdfViewerModule,
+
+    // FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AuthGuard, AngularFireAuth, FilesService],
   bootstrap: [AppComponent]

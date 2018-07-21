@@ -1,3 +1,137 @@
-<p>
-  userperfil works!
-</p>
+<!-- FORMS GUIA: https://angular.io/guide/forms -->
+<div class='container-fluid'>
+  <form class='row' novalidate [formGroup]="perfilForm" (ngSubmit)="save()">
+    <fieldset class='form-group col-md-4' disabled>
+      <!-- auth user data -->
+      <legend class="text-left principal"><strong>Datos de Autenticación:</strong></legend>
+
+      <div class='alert alert-info'>
+        <p>Los datos de autenticación son proporcionados por el proveedor de tu cuenta.
+          No puedes modificarlos aquí.</p>
+      </div>
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> Foto de perfil: </strong></legend>
+        <img class='img-thumbnail rounded mx-auto' [src]='userdata.photoURL'>
+        <input type='text' hidden readonly formControlName='photoURL'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.photoURL.errors'>
+          <p *ngIf='perfilForm.controls.photoURL.errors.required'>Dato Requerido</p>
+        </div>
+      </fieldset>
+
+      <!--
+      <fieldset class='form-group' hidden>
+        <legend class="text-left" hidden> Id de cuenta: </legend>
+      -->
+        <input class='form-control' type='text' hidden readonly formControlName='uid'>
+      <!--
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.uid.errors'>
+          <p *ngIf='perfilForm.controls.uid.errors.required'>Dato Requerido</p>
+        </div>
+      </fieldset>
+      -->
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> Nickname: </strong></legend>
+        <input class='form-control' type='text' readonly formControlName='displayName'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.displayName.errors'>
+          <p *ngIf='perfilForm.controls.displayName.errors.required'>Dato Requerido</p>
+        </div>
+      </fieldset>
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> email de cuenta: </strong></legend>
+        <input class='form-control' type='email' readonly formControlName='email'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.email.errors'>
+          <p *ngIf='perfilForm.controls.email.errors.required'>Dato Requerido</p>
+        </div>
+      </fieldset>
+
+      <!--
+      <fieldset class='form-group'>
+        <legend class="text-left"> Cuenta verificada: </legend>
+      -->
+        <input class='form-control' type='text' hidden readonly formControlName='emailVerified'>
+      <!--
+          <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.emailVerified.errors'>
+          <p *ngIf='perfilForm.controls.emailVerified.errors.pattern'>Cuenta no verificada</p>
+        </div>
+      </fieldset>
+      -->
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> Celular asociado: </strong></legend>
+        <input class='form-control' type='text' readonly formControlName='phoneNumber'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.phoneNumber.errors'>
+          <p *ngIf='perfilForm.controls.phoneNumber.errors.required'>Dato Requerido</p>
+        </div>
+      </fieldset>
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> Dominio de la cuenta: </strong></legend>
+        <input class='form-control' type='text' readonly formControlName='providerId'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.providerId.errors'>
+          <p>Datos Incorrectos</p>
+        </div>
+      </fieldset>
+
+    </fieldset>
+
+    <fieldset class='form-group col-md-4'>
+      <!-- personal user data -->
+      <legend class="text-left principal"><strong>Datos Personales:</strong></legend>
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> Nombre: </strong></legend>
+          <input class='form-control' type='text' formControlName='nombre' placeholder='Ingresa tu Nombre'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.nombre.errors'>
+          <p *ngIf='perfilForm.controls.nombre.errors.required'>Nombre es requerido</p>
+          <p *ngIf='perfilForm.controls.nombre.errors.maxlength'>Demasiado largo</p>
+          <p *ngIf='perfilForm.controls.nombre.errors.pattern'>Palabras de 2 a 15 letras separadas por un espacio</p>
+        </div>
+      </fieldset>
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> Apellido: </strong></legend>
+          <input class='form-control' type='text' formControlName='apellido' placeholder='Ingresa tu apellido'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.apellido.errors'>
+          <p *ngIf='perfilForm.controls.apellido.errors.required'>Apellido es requerido</p>
+          <p *ngIf='perfilForm.controls.apellido.errors.maxlength'>Demasiado largo</p>
+          <p *ngIf='perfilForm.controls.apellido.errors.pattern'>Palabras de 2 a 15 letras separadas por un espacio</p>
+        </div>
+      </fieldset>
+
+      <fieldset class='form-group'>
+        <legend class="text-left"><strong> Teléfono de contacto: </strong></legend>
+          <input class='form-control' type='text' formControlName='telefono' placeholder='xxxxxxxxx'>
+        <div class='alert alert-danger'
+          *ngIf='perfilForm.controls.telefono.errors'>
+          <p *ngIf='perfilForm.controls.telefono.errors.pattern'>Número de 8 o 9 cifras</p>
+        </div>
+      </fieldset>
+
+    </fieldset>
+
+    <div class='col-md-12 botonera'>
+      <button [disabled]='perfilForm.pristine || !perfilForm.valid' type='submit'
+        class='btn btn-success'>Guardar</button>
+      <!--<button type='reset' class='btn btn-warning' (click)='perfilForm.reset()'
+        [disabled]='perfilForm.pristine'>Limpiar Formulario</button>-->
+      <button [disabled]='!userdata.uid' type='button' class='btn btn-danger'
+        (click)='delete()'>Eliminar</button>
+    </div>
+  </form>
+</div>
+
+<pre>{{ userlogged | json }}</pre>
+<pre>{{ userdata | json }}</pre>
+<pre>{{ perfilForm.value | json }}</pre>

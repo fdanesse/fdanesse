@@ -1,0 +1,80 @@
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(102, 59, 42, 0.5);
+}
+
+fieldset {
+  padding: 0 10px 10px 10px;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-flex-direction: column !important;
+  flex-direction: column !important;
+  background-color: rgba(102, 59, 42, 0.3);
+}
+fieldset > fieldset {
+  border: 0.08em solid whitesmoke;
+  border-radius: 5px;
+  background-color: white;
+}
+
+legend {
+  padding: 5px;
+  padding-left: 10px;
+  font-size: 1.0em;
+  background-color: white;
+  color: #6f7c91;
+}
+
+.principal {
+  border: 0.08em solid whitesmoke;
+  background-color: #6f7c91;
+  border-radius: 5px;
+  color: white;
+}
+
+img {
+  max-width: 150px;
+}
+
+.alert {
+  padding: 5px;
+  margin-top: 3px;
+}
+
+.alert > p {
+  margin: 0;
+}
+
+/*
+.ng-valid
+.ng-invalid
+.ng-pending
+.ng-pristine
+.ng-dirty
+.ng-untouched
+.ng-touched
+*/
+
+.botonera {
+  background-color: rgba(141, 110, 99, 0.3);
+  padding: 5px;
+  margin-bottom: 30px;
+}
+.btn {
+  float: right;
+  margin: 5px;
+}
+
+.ng-valid:not(form) {
+  border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442;
+}
