@@ -12,6 +12,8 @@ import { FilesService } from '../../servicios/files.service';
 })
 export class VideocursosComponent implements OnInit, OnDestroy {
 
+  public perfilbutton = true;
+
   lenguajes = new Array();
   currentLenguaje;
   currentCursos = new Array();

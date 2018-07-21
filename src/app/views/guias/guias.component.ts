@@ -20,6 +20,8 @@ import { FilesService } from '../../servicios/files.service';
 })
 export class GuiasComponent implements OnInit, OnDestroy {
 
+  public perfilbutton = true;
+
   lenguajes = [];
 
   currentLenguaje;

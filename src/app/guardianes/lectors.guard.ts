@@ -1,7 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs'; // pipe
-// import { map, take, tap } from 'rxjs/operators';
 
 import { AuthService } from '../servicios/auth.service';
 import { FilesService } from '../servicios/files.service';
@@ -20,18 +19,18 @@ export class LectorsGuard implements CanActivate, OnDestroy {
 
   private userloggedSubscription: Subscription;
   private userlogged: Fduser;
-
+  private userdataSubscription: Subscription;
+  private userdata: Fduser;
   private lectoresSubscription: Subscription;
   private lectores = new Array();
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-    public filesService: FilesService
-  ) {
-    // Observando al usuario logueado
+  constructor(private router: Router, private authService: AuthService, public filesService: FilesService) {
+
     this.userloggedSubscription = this.authService.obsLogged.subscribe(user => {
       this.userlogged = Object.assign({}, user); // user puede ser null
+      if (this.userlogged['email']) {
+        this.listenUserData(this.userlogged['email']);
+      }
     });
 
     this.lectoresSubscription = this.filesService.getCollection('lectores').
@@ -45,32 +44,26 @@ export class LectorsGuard implements CanActivate, OnDestroy {
     });
   }
 
+  listenUserData(email: string) {
+    if (this.userdataSubscription) {
+      this.userdataSubscription.unsubscribe();
+    }
+    this.userdataSubscription = this.filesService.getDocument('registrados', email)
+      .subscribe( user => {
+        this.userdata = Object.assign({}, user);
+    });
+  }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      const ret = this.lectores.includes(this.userlogged.email); // FIXME: asegurar que esté registrado
+      const ret = this.lectores.includes(this.userlogged.email) && this.userdata['email'] === this.userlogged.email;
       if (!ret) {
         window.alert('Debes estar registrado como lector para acceder a esta dirección.');
         this.router.navigate(['/home']);
+        return false;
       }
       return ret;
-      /*
-      return this.authService.afAuth.authState
-        .pipe(
-          take(1), map(authState => !! authState), tap(authenticated => {
-          if (!authenticated) {
-            window.alert('Debes estar registrado como lector para acceder a esta dirección.');
-            this.router.navigate(['/home']);
-          }else {
-            if (this.lectores.includes(this.userlogged.email)) { // FIXME: asegurar que esté registrado
-              return true;
-            }else {
-              window.alert('Debes estar registrado como lector para acceder a esta dirección.');
-              this.router.navigate(['/home']);
-            }
-          }
-        }));
-    */
   }
 
   ngOnDestroy() {

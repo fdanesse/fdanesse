@@ -18,13 +18,13 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       return this.authService.afAuth.authState
-        .pipe(
-          take(1), map(authState => !! authState), tap(authenticated => {
+        .pipe(take(1), map(authState => !! authState), tap(authenticated => {
           if (!authenticated) {
             window.alert('Debes autenticarte para acceder a esta dirección.');
             this.router.navigate(['/home']);
+            return false;
           }else {
-              return true;
+            return true;
           }
         }));
   }
