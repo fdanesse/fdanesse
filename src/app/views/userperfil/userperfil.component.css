@@ -1,12 +1,29 @@
 .container-fluid {
   padding: 0;
   margin: 0;
+  display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+  flex-direction: column;
+	-webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 form {
-  margin: 0;
+  display: block;
+  margin: auto;
   padding: 10px;
   background-color: rgba(102, 59, 42, 0.5);
+  display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+  flex-direction: row;
+	-webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 fieldset {
