@@ -13,7 +13,7 @@
         <li>Reproduce Streamings</li>
         <li>Busca Videos en youtube</li>
         <li>Descarga Videos desde youtube</li>
-        <li>Graba desde Streamings</li>
+        <li><s>Graba desde Streamings</s> <i>(Quitado en Versión 18)</i> </li>
       </ul>
       <hr>
 
@@ -21,7 +21,7 @@
         <a href="https://github.com/fdanesse/jamedia-python" target="_blank"> jamedia-python</a>
       </h5>
       <h5>Instalador para Sugar:
-        <a href="https://activities.sugarlabs.org/es-ES/sugar/addon/4548" target="_blank">jamedia-sugar</a>
+        <a href="https://activities.sugarlabs.org/es-ES/sugar/addon/4355" target="_blank">jamedia-sugar</a>
       </h5>
     </section>
 
@@ -32,18 +32,16 @@
 			<h4><strong>Bibliotecas Necesarias:</strong></h4>
 			<hr>
 			<ul>
-				<li>python 2.7</li>
-				<li>gtk 2.0</li>
-				<li>gstreamer 0.10</li>
+				<li>python 3.6.3</li>
+				<li>gtk 3.0</li>
+        <li>gstreamer 1.0</li>
+        <li>webkit 4.0</li>
 				<hr>
-				<li>python-gst0.10</li>
-				<li>gstreamer0.10-ffmpeg</li>
-				<li>gstreamer0.10-plugins-base</li>
-				<li>gstreamer0.10-plugins-good</li>
-				<li>gstreamer0.10-plugins-ugly</li>
-				<li>gstreamer0.10-plugins-bad</li>
-				<li>gstreamer0.10-tools</li>
-				<li>python-gst0.10-rtsp</li>
+				<li>gstreamer1.0-plugins-base</li>
+        <li>gstreamer1.0-plugins-good</li>
+				<li>gstreamer1.0-plugins-ugly</li>
+				<li>gstreamer1.0-libav</li>
+				<li>gstreamer1.0-tools</li>
 				<hr>
 			</ul>
 		</section>
@@ -53,19 +51,12 @@
 			<hr>
 			<h6><strong>Descarga:</strong></h6>
 			<ul>
-				<li>Descarga el zip desde el repositorio</li>
-				<li>Descomprime el zip en tu computadora</li>
-				<li>Entra en el directorio descomprimido</li>
+				<li>Descarga el archivo deb desde el repositorio</li>
 			</ul>
 			<hr>
-			<h6><strong>Instalación standar:</strong></h6>
+			<h6><strong>Instalación:</strong></h6>
 				<ul>
-					<li>Ejecuta: "sudo python setup.py install"</li>
-				</ul>
-			<hr>
-			<h6><strong>Instalación sin root:</strong></h6>
-				<ul>
-					<li>Ejecuta: "python install.py"</li>
+					<li>Hazle doble click al archivo descargado</li>
 				</ul>
 		<hr>
 		</section>
@@ -73,18 +64,10 @@
 		<section>
 		<h4><strong>Para Desinstalar:</strong></h4>
 			<hr>
-			<h6><strong>Instalación standar:</strong></h6>
 				<ul>
-					<li>Ejecuta: "sudo jamedia_uninstall"</li>
+					<li>Ejecuta: "sudo apt-get remove jamedia"</li>
 				</ul>
 			<hr>
-			<h6><strong>Instalación sin root:</strong></h6>
-			<ul>
-				<li>Borra: "/home/tu_usuario/.local/share/JAMedia"</li>
-        <li>Borra: "/home/tu_usuario/.local/share/applications/JAMedia.desktop"</li>
-        <!--FIXME: li no son responsivas-->
-			</ul>
-		<hr>
 		</section>
   </main>
 

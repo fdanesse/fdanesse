@@ -40,6 +40,7 @@ h6 {
 
 .fa {
   color: white;
+  margin-left: 5px;
 }
 
 .fa-home:hover,.fa-linkedin:hover, .fa-youtube-square:hover {
@@ -66,8 +67,8 @@ main {
 section {
 	clear:both;
 	position: relative;
-	width: 300px;
-	height: 300px;
+	width: 250px;
+	height: 250px;
 	margin: 5px;
 	padding: 5px;
 	background-color: rgba(255, 255, 255, 0.2);
@@ -84,7 +85,7 @@ section {
 section img {
 	position: relative;
   display: block;
-  height: 250px;
+  height: 200px;
   width: auto;
   transition: .5s ease; /*transition: opacity 0.5s;*/
   overflow: hidden;
@@ -94,7 +95,8 @@ section h2 {
   position: relative;
   color: white;
 	background-color: black;
-	text-align: center;
+  text-align: center;
+  font-size: 1em;
 	margin: 0px;
 	padding: 5px;
   padding-top: auto;

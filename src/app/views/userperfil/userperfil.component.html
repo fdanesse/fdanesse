@@ -1,7 +1,7 @@
 <!-- FORMS GUIA: https://angular.io/guide/forms -->
 <div class='container-fluid'>
   <form class='row' novalidate [formGroup]="perfilForm" (ngSubmit)="save()">
-    <fieldset class='form-group col-md-4' disabled>
+    <fieldset class='form-group col-md-4 animated bounceInLeft' disabled>
       <!-- auth user data -->
       <legend class="text-left principal"><strong>Datos de Autenticación:</strong></legend>
 
@@ -84,7 +84,7 @@
 
     </fieldset>
 
-    <fieldset class='form-group col-md-4'>
+    <fieldset class='form-group col-md-4 animated bounceInRight'>
       <!-- personal user data -->
       <legend class="text-left principal"><strong>Datos Personales:</strong></legend>
 
@@ -126,7 +126,7 @@
 
     </fieldset>
 
-    <div class='col-md-12 botonera'>
+    <div class='col-md-12 botonera animated bounceInUp'>
       <button [disabled]='perfilForm.pristine || !perfilForm.valid' type='submit'
         class='btn btn-success'>Guardar</button>
       <!--<button type='reset' class='btn btn-warning' (click)='perfilForm.reset()'

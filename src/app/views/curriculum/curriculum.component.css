@@ -127,3 +127,12 @@ ul, li{
 	margin-bottom: 0.3em;
 	line-height: 1.3em;
 }
+
+.fa {
+  margin-left: 5px;
+  color: white;
+}
+
+.fa:hover {
+  color: orange;
+}
