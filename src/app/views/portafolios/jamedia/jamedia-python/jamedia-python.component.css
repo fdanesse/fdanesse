@@ -33,20 +33,16 @@
 header {
 	width: 98%;
 	height: auto;
-  margin: auto;
-  margin-top: 10px;
-	padding: 5px;
+  margin: 1%;
+	padding: 1%;
   background-color: #778899;
-	/*border: 0.01em #C5CAE9 solid;*/
 	clear: both;
 	display: -webkit-flex;
 	display: flex;
 	-webkit-flex-direction: row;
 	flex-direction: row;
-	-webkit-justify-content: space-around;
-  justify-content: space-around;
-  -webkit-justify-content: left !important;
-  justify-content: left !important;
+	-webkit-justify-content: space-between;
+  justify-content: space-between;
   -webkit-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
@@ -62,7 +58,7 @@ header figure {
 	display: block;
 	width: 260px;
 	height: 260px;
-	/*margin: auto;*/
+  margin: 1%;
 	background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top left;
@@ -89,7 +85,9 @@ hr {
 }
 
 header section {
-	margin: 0 0.5em;
+	margin: auto;
+  margin-left: 1%;
+  /*margin-right: 1%;*/
 }
 
 ul {
@@ -121,27 +119,22 @@ a:hover{
 main {
 	width: 98%;
 	height: auto;
-  margin: auto;
-  margin-top: 10px;
-	padding: 5px;
+	margin: 1%;
+	padding: 1.0em;
 	background-color: #778899;
-	/*border: 0.01em #C5CAE9 solid;*/
 	clear: both;
 	display: -webkit-flex;
 	display: flex;
-  -webkit-justify-content: space-around;
-  justify-content: space-around;
-  -webkit-justify-content: left !important;
-  justify-content: left !important;
-  -webkit-flex-wrap: nowrap;
-  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 main section {
-  /*display: block;*/
-	position: relative;
-	margin: 10px;
-	padding: 10px;
+  width: 33%;
+	margin: 0.5em;
+	padding: 0.5em;
 	background-color: rgba(255, 255, 255, 0.2);
 	border: 0.01em white solid;
 	border-radius: 0.5em;
@@ -159,5 +152,15 @@ main section {
     flex-direction: column;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
+  }
+  header figure {
+    margin: auto;
+  }
+  header section {
+    margin: 1%;
+  }
+  main section {
+    width: 98%;
+    margin: 1%;
   }
 }
