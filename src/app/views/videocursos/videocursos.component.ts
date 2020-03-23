@@ -1,6 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
-
 import { FilesService } from '../../servicios/files.service';
 
 
@@ -31,7 +29,7 @@ export class VideocursosComponent implements OnInit, OnDestroy {
   lenguajesSubscription;
   temasSubscription;
 
-  temp;
+  // temp;
 
   constructor(public filesService: FilesService) {
     this.getLenguajes();
@@ -46,7 +44,7 @@ export class VideocursosComponent implements OnInit, OnDestroy {
       subscribe(data => {
         this.lenguajes = new Array();
         if (data) {
-          this.temp = Object.assign(data);
+          // this.temp = Object.assign(data);
           data.map((val) => { // data == Array - val == Array
             for (const leng in val) {
               if (leng) {

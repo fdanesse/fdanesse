@@ -1,0 +1,59 @@
+html, body, main {
+    /*background-color: rgb(96,96,96);*/
+    min-height: 100vh;
+  }
+  
+.container-fluid {
+    width: 100%;
+    min-height: 100vh;
+    padding: 5px;
+    margin: 0;
+    /*background-color: rgb(96,96,96);*/
+  }
+  
+.main {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 0px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    /*-webkit-justify-content: center;
+    justify-content: center;*/
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+  
+  
+a, a:link, a:visited, a:active, a:focus{
+    text-decoration: none;
+  }
+a {
+    /*color: white !important;*/
+    padding: 5px !important;
+    margin: 0 !important;
+    font-size: 1.2em;
+}
+a:hover {
+    color:orange !important;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.selected {
+    color:orange !important;
+}
+
+/*
+nav {
+    padding: 10px;
+    background-color: black;
+}
+*/
+
+.menu {
+    border:1px solid red;
+    margin-left: 15px;
+}

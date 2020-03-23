@@ -13,6 +13,7 @@ import { GuiasComponent } from './views/guias/guias.component';
 import { VideocursosComponent } from './views/videocursos/videocursos.component';
 import { AuthGuard } from './guardianes/auth.guard';
 import { LectorsGuard } from './guardianes/lectors.guard';
+import { MenuarticulosComponent } from './views/menuarticulos/menuarticulos.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'jamedia_radio', component: JamediaRadioComponent },
   { path: 'guias', component: GuiasComponent, canActivate: [LectorsGuard] },
   { path: 'videocursos', component: VideocursosComponent, canActivate: [LectorsGuard] },
+  { path: 'menuarticulos', component: MenuarticulosComponent},
   { path: '**', component: NotfoundComponent }
 ];
 

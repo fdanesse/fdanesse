@@ -35,6 +35,7 @@ import { LectorsGuard } from './guardianes/lectors.guard';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { UserperfilComponent } from './views/userperfil/userperfil.component';
 import { WelcomeComponent } from './componentes/welcome/welcome.component';
+import { MenuarticulosComponent } from './views/menuarticulos/menuarticulos.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { WelcomeComponent } from './componentes/welcome/welcome.component';
     VideocursosComponent,
     UserperfilComponent,
     WelcomeComponent,
+    MenuarticulosComponent,
   ],
   imports: [
     BrowserModule,

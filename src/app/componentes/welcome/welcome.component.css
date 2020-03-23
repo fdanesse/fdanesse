@@ -46,3 +46,9 @@ h5 {
   margin-bottom: 5px;
   border: 0.1em solid black;
 }
+
+@media print{
+  .no-print, .no-print *{
+    display: none !important;
+  }
+}
