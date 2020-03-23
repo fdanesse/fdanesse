@@ -18,6 +18,7 @@ export class MenuarticulosComponent implements OnInit, OnDestroy {
 
   private menuSubscription;
   public items = new Array();
+  public currentArticuloPath = '';
 
 
   constructor(public filesService: FilesService) {
@@ -51,9 +52,8 @@ export class MenuarticulosComponent implements OnInit, OnDestroy {
   }
 
   articuloSelected(key, event) {
-    console.log(event.target.innerHTML, key);
-    //this.currentLenguaje = event.target.innerHTML;
-    //const widget = event.target as HTMLElement;
+    // console.log(event.target.innerHTML, key);
+    this.currentArticuloPath = key + '/' + event.target.innerHTML;
   }
 
   ngOnInit() {}

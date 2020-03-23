@@ -10,6 +10,7 @@
       <ul> <a *ngFor='let item of m.value' (click)='articuloSelected(m.key, $event)'><li>{{item.titulo}}</li></a> </ul>
     </div>
 
+    <app-articulo id="articulo" [articuloPath]=currentArticuloPath></app-articulo>
     <!--
     <nav class='col-md-3 animated bounceInLeft' id='navbarTemas'>
       <a *ngFor='let t of currentCursos' (click)='cursoSelected($event)'>{{t[0]}}</a>
