@@ -1,17 +1,35 @@
-html, body, main {
+html, body {
     /*background-color: rgb(96,96,96);*/
-    min-height: 100vh;
+    /*min-height: 100vh;*/
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
   }
-  
+
+  .fa {
+    color: black;
+  }
+  .fa:hover,.fa:hover {
+    cursor: pointer;
+    color: white;
+    text-shadow: 0.025em 0.025em 0.025em black !important;
+  }
+
+  nav {
+    background-color: #26A69A;
+    padding: 5px;
+    padding-left: 15px;
+  }
+
 .container-fluid {
     width: 100%;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     padding: 5px;
     margin: 0;
     /*background-color: rgb(96,96,96);*/
   }
   
-.main {
+.row {
     width: auto;
     height: auto;
     padding: 10px;
@@ -26,34 +44,24 @@ html, body, main {
     flex-wrap: wrap;
 }
   
-  
+.menu {
+    background-color: #B2DFDB;
+    border:1px solid #004D40;
+    padding: 10px;
+    margin: 5px;
+    margin-left: 15px;
+}
+
 a, a:link, a:visited, a:active, a:focus{
     text-decoration: none;
   }
 a {
-    /*color: white !important;*/
-    padding: 5px !important;
-    margin: 0 !important;
-    font-size: 1.2em;
+    /*padding: 5px !important;*/
+    /*margin: 0px !important;*/
+    /*font-size: 1.2em;*/
 }
 a:hover {
-    color:orange !important;
+    color:blue !important;
     cursor: pointer;
     transition: 0.2s;
-}
-
-.selected {
-    color:orange !important;
-}
-
-/*
-nav {
-    padding: 10px;
-    background-color: black;
-}
-*/
-
-.menu {
-    border:1px solid red;
-    margin-left: 15px;
 }

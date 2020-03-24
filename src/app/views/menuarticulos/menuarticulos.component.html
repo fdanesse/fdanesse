@@ -1,36 +1,16 @@
 <div class='container-fluid'>
   <nav class='row animated bounceInDown' id='navbarLenguajes'>
     <a class="navbar-brand" routerLink="/home"><i class="fa fa-home fa-2x"></i></a>
+    <a class="navbar-brand" (click)='closeArticulo()' *ngIf=articuloVisible><i class="fa fa-arrow-left fa-2x"></i></a>
   </nav>
 
-  <div class='row main animated bounceInUp'>
+  <div class='row' *ngIf=!articuloVisible>
     <div class='menu' *ngFor='let m of menu'>
-      <!-- Imagen -->
+      <!-- FIXME: Imagen -->
       <h1>{{m.key}}</h1> <!--<pre>{{ m.value | json }}</pre>-->
       <ul> <a *ngFor='let item of m.value' (click)='articuloSelected(m.key, $event)'><li>{{item.titulo}}</li></a> </ul>
     </div>
-
-    <app-articulo id="articulo" [articuloPath]=currentArticuloPath></app-articulo>
-    <!--
-    <nav class='col-md-3 animated bounceInLeft' id='navbarTemas'>
-      <a *ngFor='let t of currentCursos' (click)='cursoSelected($event)'>{{t[0]}}</a>
-
-      <nav id='navbarVideos' *ngIf='currentVideos.length > 0'> --class='col-md-12'--
-        <a *ngFor='let t of currentVideos' (click)='videoSelected($event)'>{{t.Titulo}}</a>
-      </nav>
-    </nav>
-
-    <div class='col-md-9 animated bounceInRight' id="lessonContainer">
-      <video video autobuffer controls='true' *ngIf='videoURL'
-        type="video/webm" autoplay='true' src={{videoURL}}>
-      </video>
-      <ul *ngIf='assets.length > 0 && assets != undefined'>
-        <h6>Assets:</h6>
-        <li *ngFor='let item of assets'><a href="{{item.path}}" target='_blank'>{{item.Titulo}}</a></li>
-      </ul>
-    </div>
-  -->
   </div>
 
-  <!--<pre>{{ temp | json }}</pre>-->
+  <app-articulo id="articulo" [articulo]=currentArticulo *ngIf=articuloVisible animated bounceInUp></app-articulo>
 </div>

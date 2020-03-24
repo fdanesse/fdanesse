@@ -1,4 +1,22 @@
 
-<div>
-  <h1>{{articuloPath}}</h1>
+<div class='container-fluid'>
+  <div class='main'>
+    <h2 class='animated bounceInUp'>{{articulo[0]}}</h2>
+    <h4 class='animated bounceInUp'>{{articulo[1]}}</h4>
+  </div>
+  
+  <div *ngFor = 'let elemento of listaElementosdelArticulo' class='animated bounceInUp row'>
+
+    <h3 *ngIf = 'elemento.tipo === "titulo"' class='titulo'>{{ elemento.contenido }}</h3>
+    <h5 *ngIf = 'elemento.tipo === "subtitulo"' class='subtitulo'>{{ elemento.contenido }}</h5>
+    <p *ngIf = 'elemento.tipo === "texto"' class='texto'>{{ elemento.contenido }}</p>
+    <figure *ngIf = 'elemento.tipo === "imagen"'>
+      <img src="{{ elemento.contenido }}">
+    </figure>
+    <div *ngIf = 'elemento.tipo === "video"' class='video'><video video autobuffer='true' controls='true' src='{{elemento.contenido}}'></video></div>
+    <a *ngIf = 'elemento.tipo === "descarga"' href='{{elemento.contenido}}' target='_blank'>Descarga: {{elemento.contenido}}</a>
+    
+    <div *ngIf = 'elemento.tipo === "pdf"'> pdf: {{ elemento.contenido }}</div>
+    
+  </div>
 </div>
