@@ -14,6 +14,7 @@ import { VideocursosComponent } from './views/videocursos/videocursos.component'
 import { AuthGuard } from './guardianes/auth.guard';
 import { LectorsGuard } from './guardianes/lectors.guard';
 import { MenuarticulosComponent } from './views/menuarticulos/menuarticulos.component';
+import { PandemiaComponent } from './views/pandemia/pandemia.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'guias', component: GuiasComponent, canActivate: [LectorsGuard] },
   { path: 'videocursos', component: VideocursosComponent, canActivate: [LectorsGuard] },
   { path: 'menuarticulos', component: MenuarticulosComponent},
+  { path: 'pandemia', component: PandemiaComponent},
   { path: '**', component: NotfoundComponent }
 ];
 

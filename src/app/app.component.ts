@@ -1,3 +1,6 @@
+// sudo apt install npm
+// sudo npm install -g @angular/cli
+
 import { Component, OnDestroy, OnInit} from '@angular/core';
 import { AuthService } from './servicios/auth.service';
 import { Router } from '@angular/router';

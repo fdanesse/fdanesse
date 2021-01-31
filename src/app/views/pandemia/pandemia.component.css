@@ -1,0 +1,44 @@
+div {
+    padding: 15px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(230,230,230);
+}
+
+h1 {
+    font-size: 2em;
+    border: 0.1 solid black;
+    padding: 5px;
+}
+h3 {
+    font-size: 1.3em;
+    padding: 5px;
+}
+h5 {
+    font-size: 1em;
+    padding: 5px;
+}
+
+a {
+    color: blue;
+}
+
+a, a:link, a:visited, a:active, a:focus{
+  text-decoration: none !important;
+  color: blue !important;
+}
+
+a:hover {
+  color:red !important;
+  text-shadow: 0.025em 0.025em 0.025em black !important;
+  cursor: pointer;
+}
+
+video {
+    width: 94%;
+    padding: 0 !important;
+    margin: auto;
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+}

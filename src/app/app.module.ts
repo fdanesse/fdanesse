@@ -37,6 +37,7 @@ import { UserperfilComponent } from './views/userperfil/userperfil.component';
 import { WelcomeComponent } from './componentes/welcome/welcome.component';
 import { MenuarticulosComponent } from './views/menuarticulos/menuarticulos.component';
 import { ArticuloComponent } from './componentes/articulo/articulo.component';
+import { PandemiaComponent } from './views/pandemia/pandemia.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { ArticuloComponent } from './componentes/articulo/articulo.component';
     WelcomeComponent,
     MenuarticulosComponent,
     ArticuloComponent,
+    PandemiaComponent,
   ],
   imports: [
     BrowserModule,
